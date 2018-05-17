@@ -24,7 +24,9 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.6.0"
+    "colors": "^1.2.5",
+    "ember-cli-babel": "^6.6.0",
+    "fs-extra": "^6.0.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
