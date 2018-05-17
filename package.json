@@ -1,9 +1,13 @@
 {
   "name": "ember-unused-components",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Search for unused components in your Ember project",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember",
+    "components",
+    "cleanup",
+    "unused"
   ],
   "repository": "https://github.com/vastec/ember-unused-components.git",
   "license": "MIT",
