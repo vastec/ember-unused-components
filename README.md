@@ -52,10 +52,10 @@ Addon will use default directory of POD components: `app/modules/components`
 
 #### Forcing POD with the custom directory
 
-Your app should be configured to have `podModulePrefix` property in `config/environment.js` if you are using POD but if it somehow doesn't work you can specify it through `--pod-dir` (alias: `-pd`). Like this:
+Your app should be configured to have `podModulePrefix` property in `config/environment.js` if you are using POD but if it somehow doesn't work you can specify it through `--pods-dir` (alias: `-pd`). Like this:
 
 ```
-ember unused:components --pods --pod-dir="modules/components-repository"
+ember unused:components --pods --pods-dir="modules/components-repository"
 ```
 
 Configuration
