@@ -166,11 +166,11 @@ Roadmap
 
 Future Plans and Ideas for the lib:
  - ignore directories
- - address dependent "unused" component problem (check (Best Practices)[#best-practices])
+ - address dependent "unused" component problem (check [Best Practices](#best-practices))
  - removal done by script
  - removal of component with all its dependencies 
  
-If you feel like you need this functionality please raise an issue or event better Contribute!
+If you feel like you need this functionality please raise an issue or event better [Contribute](#contributing)!
 
 Contributing
 ------------------------------------------------------------------------------
