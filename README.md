@@ -125,7 +125,7 @@ ENV['ember-unused-components'] = {
 Removing components
 ------------------------------------------------------------------------------
 
-Please raise an issue if you would like to see that functionality.  It might be useful. But please consider that simple removal of:
+Please raise an issue if you would like to see that functionality. It might be useful. But please consider that simple removal of:
  - `template.hbs`
  - `component.js`
  - `style.sass` (if you use `ember-component-css`)
@@ -135,10 +135,42 @@ might not remove everything you would like. Examples:
  - global CSS classes that are no longer used
  - 3rd party JS libraries used only in that component
  - translation keys that are no longer needed
+ - assets (images) that are no longer used
+ - local overwrites/adjustments for that component made by parent's CSS
 
 So you'll still have some dead code because of unused components.
 
 I encourage you to remove components from the list manually.
+
+Best Practices
+------------------------------------------------------------------------------
+
+Once you delete unused components run the script once again :) You might find that now some other components are no longer used.
+This happens when the component is used in the unused component.
+
+Example:
+
+
+```hbs
+{{!-- users-list component --}}
+{{#each users as |user|}}
+  {{user-card user=user}}
+{{/each}}
+```
+
+So `user-card` is being used but in *unused* component `users-list`. Once you will delete `users-list` component then `user-card`
+will not be longer used.
+
+Roadmap
+------------------------------------------------------------------------------
+
+Future Plans and Ideas for the lib:
+ - ignore directories
+ - address dependent "unused" component problem (check (Best Practices)[#best-practices])
+ - removal done by script
+ - removal of component with all its dependencies 
+ 
+If you feel like you need this functionality please raise an issue or event better Contribute!
 
 Contributing
 ------------------------------------------------------------------------------
