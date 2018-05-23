@@ -122,6 +122,18 @@ ENV['ember-unused-components'] = {
 };
 ```
 
+### Ignored files
+
+A component might be used in some files like guidelines template (see [ember-freestyle](https://github.com/chrislopresto/ember-freestyle)) that in fact does not indicate that it is in use. Best practice is to ignore that file:
+
+```js
+ENV['ember-unused-components'] = {
+  ignore: [
+    'app/templates/freestyle.hbs' // this is our template with style guides
+  ]
+};
+```
+
 Removing components
 ------------------------------------------------------------------------------
 
@@ -165,7 +177,6 @@ Roadmap
 ------------------------------------------------------------------------------
 
 Future Plans and Ideas for the lib:
- - ignore directories
  - address dependent "unused" component problem (check [Best Practices](#best-practices))
  - removal done by script
  - removal of component with all its dependencies 
