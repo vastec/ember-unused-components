@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/ember-unused-components.svg)](https://badge.fury.io/js/ember-unused-components)
+![ember-cli version](https://img.shields.io/badge/ember--cli-3.1.4-orange.svg)
+
 ember-unused-components
 ==============================================================================
 
