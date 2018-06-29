@@ -1,5 +1,11 @@
 # ember-unused-components CHANGELOG
 
+## 0.2.0 (June 29, 2018)
+
+**BUG FIXES:**
+
+- Better match mechanism for finding component occurrences
+
 ## 0.1.1 (June 5, 2018)
 
 **FEATURES:**
