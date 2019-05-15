@@ -1,5 +1,10 @@
+'use strict';
+
 module.exports = {
-  env: {
-    embertest: true
-  }
+  parserOptions: {
+    sourceType: 'module',
+  },
+  rules: {
+    'node/no-unsupported-features/es-syntax': 'off',
+  },
 };

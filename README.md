@@ -1,18 +1,22 @@
 [![npm version](https://badge.fury.io/js/ember-unused-components.svg)](https://badge.fury.io/js/ember-unused-components)
-![ember-cli version](https://img.shields.io/badge/ember--cli-3.1.4-orange.svg)
 
 ember-unused-components
 ==============================================================================
 
-This addon searches for unused components in your Ember project. It has POD structure and whitelist support.
+This script searches for unused components in your Ember project. It supports classic and POD structures, ignoring files and whitelisting components unused temporary.
 
 Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install ember-unused-components
+yarn add ember-unused-components
 ```
 
+or
+
+```
+npm install ember-unused-components --save-dev
+```
 
 Usage
 ------------------------------------------------------------------------------
@@ -20,10 +24,10 @@ Usage
 Run in your app root directory:
 
 ```
-ember unused:components
+ember-unused-components
 ```
 
-Expected output:
+Expected output (simplified):
 
 ```
 Searching for unused components:
@@ -39,7 +43,7 @@ If you feel like there are too many components listed then check [Configuration 
 
 ### Advanced usage
 
-Typically the addon should realize if you are using [POD structure](https://ember-cli.com/user-guide/#pod-structure) or not and find its way to components directory.
+Typically the script should realize if you are using [POD structure](https://ember-cli.com/user-guide/#pod-structure) or not and find its way to components directory.
 
 If you have problems with that, consider:
 
@@ -48,39 +52,41 @@ If you have problems with that, consider:
 To force using POD use `--pods` argument (alias: `-p`). Like this:
 
 ```
-ember unused:components --pods
+ember-unused-components --pods
 ```
 
-Addon will use default directory of POD components: `app/modules/components`
+The script will use the default directory of POD components: `app/modules/components`
 
 #### Forcing POD with the custom directory
 
 Your app should be configured to have `podModulePrefix` property in `config/environment.js` if you are using POD but if it somehow doesn't work you can specify it through `--pods-dir` (alias: `-pd`). Like this:
 
 ```
-ember unused:components --pods --pods-dir="modules/components-repository"
+ember-unused-components --pods --pods-dir="modules/components-repository"
 ```
 
 Configuration
 ------------------------------------------------------------------------------
 
-In typical use cases, it should work out of the box and you don't have to configure anything but you can consider following options:
-
-### Whitelist
-
-You can specify which components should not be treated as unused even if the addon couldn't find their usage occurrences. This happens when:
- - you know that the component will be used in the future and you don't want to remove it and being reminded of that
- - you use some kind of "dynamic name resolution" for your components
- 
-Add whitelist to your `config/environment.js` file:
+In typical use cases, it should work out of the box and you don't have to configure anything but you can consider the following options.
+First, you need to create `.eucrc.js` file in the root directory:
 
 ```js
-ENV['ember-unused-components'] = {
+module.exports = {
   whitelist: [
     'app/app-tab-panel' // we will use it again soon
+  ],
+  ignore: [
+    'app/templates/freestyle.hbs' // this is our template with style guides
   ]
 };
 ```
+
+### Whitelist
+
+You can specify which components should not be treated as unused even if the script couldn't find their usage occurrences. This happens when:
+ - you know that the component will be used in the future and you don't want to remove it and being reminded of that
+ - you use some kind of "dynamic name resolution" for your components
 
 ------------------------------------------------------------------------------
 
@@ -110,7 +116,7 @@ Unfortunately, this static analysis tool doesn't understand it yet and doesn't k
 has been used anywhere.
 You can whitelist these components from being marked as unused by referencing to them directly:
 ```js
-ENV['ember-unused-components'] = {
+module.exports = {
   whitelist: [
     'car-card-suv',
     'car-card-sport',
@@ -120,17 +126,17 @@ ENV['ember-unused-components'] = {
 ```
 or by using wildcard:
 ```
-ENV['ember-unused-components'] = {
+module.exports = {
   whitelist: ['car-card-*']
 };
 ```
 
 ### Ignored files
 
-A component might be used in some files like guidelines template (see [ember-freestyle](https://github.com/chrislopresto/ember-freestyle)) that in fact does not indicate that it is in use. Best practice is to ignore that file:
+A component might be used in some files like guidelines template (see [ember-freestyle](https://github.com/chrislopresto/ember-freestyle)) that in fact does not indicate that it is in use. The best practice is to ignore that file:
 
 ```js
-ENV['ember-unused-components'] = {
+module.exports = {
   ignore: [
     'app/templates/freestyle.hbs' // this is our template with style guides
   ]
@@ -176,42 +182,29 @@ Example:
 So `user-card` is being used but in *unused* component `users-list`. Once you will delete `users-list` component then `user-card`
 will not be longer used.
 
-Roadmap
-------------------------------------------------------------------------------
-
-Future Plans and Ideas for the lib:
- - address dependent "unused" component problem (check [Best Practices](#best-practices))
- - removal done by script
- - removal of component with all its dependencies 
- 
-If you feel like you need this functionality please raise an issue or event better [Contribute](#contributing)!
-
 Contributing
 ------------------------------------------------------------------------------
 
-### Installation
+If you feel like you need some functionality please raise an issue or event better Contribute!
 
-* `git clone <repository-url>`
-* `cd ember-unused-components`
-* `npm install`
+### Testing
 
-### Linting
+It's very important to prepare test cases for fixes and new features.
 
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
+We have a directory `test-apps` with applications that have different configs and different Ember versions which support or
+does not support certain "features" like angle brackets components or module unification project structure.
 
 ### Running tests
 
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `ember try:each` – Runs the test suite against multiple Ember versions
+* `yarn run test`
 
-### Running the dummy application
+### Linting
 
-* `ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+* `yarn run lint`
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+### Debugging
+
+* `ember-unused-components --debug`
 
 License
 ------------------------------------------------------------------------------

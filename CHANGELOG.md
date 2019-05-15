@@ -1,5 +1,14 @@
 # ember-unused-components CHANGELOG
 
+## 1.0.0 (in progress)
+
+**COMPLETE REWRITE:**
+
+This is no longer an Ember addon but a NodeJS command-line script. The reasons for changing the approach were:
+- It's faster than `ember-cli` interface.
+- It gives more freedom when it comes to testing. Finally, we have multiple Ember app instances with a different configuration for testing purposes.
+That gives us more confidence when introducing changes.
+
 ## 0.2.0 (June 29, 2018)
 
 **BUG FIXES:**
@@ -14,7 +23,7 @@
 
 **BUG FIXES:**
 
-- Proper command name for ember help
+- The proper command name for ember help
 
 **MAINTENANCE:**
 
