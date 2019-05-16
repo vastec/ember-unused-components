@@ -8,14 +8,14 @@ This script searches for unused components in your Ember project. It supports cl
 Installation
 ------------------------------------------------------------------------------
 
-```
-yarn add ember-unused-components
+```bash
+$ yarn add ember-unused-components
 ```
 
 or
 
-```
-npm install ember-unused-components --save-dev
+```bash
+$ npm install ember-unused-components --save-dev
 ```
 
 Usage
@@ -23,14 +23,14 @@ Usage
 
 Run in your app root directory:
 
-```
-ember-unused-components
+```bash
+$ ember-unused-components
 ```
 
 Expected output (simplified):
 
-```
-Searching for unused components:
+```bash
+
  No. of components: 277
  No. of unused components: 2 (7.22%)
 
@@ -45,7 +45,7 @@ If you feel like there are too many components listed then check [Configuration 
 
 Make sure to try optional parameter `--stats` so you'll see some interesting stuff:
 
-```
+```bash
 $ ember-unused-components --stats
 
  No. of components: 304
@@ -76,8 +76,8 @@ If you have problems with that, consider:
 
 To force using POD use `--pods` argument (alias: `-p`). Like this:
 
-```
-ember-unused-components --pods
+```bash
+$ ember-unused-components --pods
 ```
 
 The script will use the default directory of POD components: `app/modules/components`
@@ -86,8 +86,8 @@ The script will use the default directory of POD components: `app/modules/compon
 
 Your app should be configured to have `podModulePrefix` property in `config/environment.js` if you are using POD but if it somehow doesn't work you can specify it through `--pods-dir` (alias: `-pd`). Like this:
 
-```
-ember-unused-components --pods --pods-dir="modules/components-repository"
+```bash
+$ ember-unused-components --pods --pods-dir="modules/components-repository"
 ```
 
 Configuration
@@ -150,7 +150,7 @@ module.exports = {
 };
 ```
 or by using wildcard:
-```
+```js
 module.exports = {
   whitelist: ['car-card-*']
 };
