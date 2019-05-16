@@ -1,8 +1,7 @@
 Test apps
 ------------------------------------------------------------------------------
 
-Every test app had its purpose. There is more to test with higher versions 
-that introduces new syntax and configuration options. 
+Every test app had its purpose. There is more to test with higher versions that introduce new syntax and configuration options. 
 
 ## LTS 3.4
 
@@ -18,4 +17,3 @@ that introduces new syntax and configuration options.
 
 - classic structure
 - curly braces components
-
