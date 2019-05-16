@@ -64,7 +64,7 @@ test('3.4 LTS - map components', t => {
   );
 });
 
-test('3.4 LTS - look for unused components', t => {
+test('3.4 LTS - look for unused components and calculate stats', t => {
   let config = {
     appPath: '/test-apps/ember_lts_3_4/app/',
     ignore: ['app/templates/freestyle.hbs'],
@@ -89,6 +89,20 @@ test('3.4 LTS - look for unused components', t => {
 
   let expectedUnusedComponents = ['max-button', 'user/user-signature'];
 
+  let expectedStats = {
+    'huge-button': { name: 'huge-button', count: 1, curly: 0, angle: 1 },
+    'max-button': { name: 'max-button', count: 0, curly: 0, angle: 0 },
+    'medium-button': { name: 'medium-button', count: 1, curly: 0, angle: 1 },
+    'mini-button': { name: 'mini-button', count: 2, curly: 0, angle: 2 },
+    'user/user-avatar': { name: 'user/user-avatar', count: 1, curly: 1, angle: 0 },
+    'user/user-card': { name: 'user/user-card', count: 1, curly: 1, angle: 0 },
+    'user/user-info': { name: 'user/user-info', count: 1, curly: 1, angle: 0 },
+    'user/user-signature': { name: 'user/user-signature', count: 0, curly: 0, angle: 0 },
+    'x-button': { name: 'x-button', count: 1, curly: 1, angle: 0 },
+    'y-button': { name: 'y-button', count: 1, curly: 1, angle: 0 },
+    'z-button': { name: 'z-button', count: 0, curly: 0, angle: 0 },
+  };
+
   analyser.scanProject(config);
   analyser.respectWhitelist(config.whitelist);
 
@@ -98,4 +112,5 @@ test('3.4 LTS - look for unused components', t => {
     expectedUnusedComponents,
     'has proper list of unused components'
   );
+  t.deepEqual(analyser.stats, expectedStats, 'has properly calculated stats');
 });

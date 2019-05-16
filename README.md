@@ -32,7 +32,7 @@ Expected output (simplified):
 ```
 Searching for unused components:
  No. of components: 277
- No. of unused components: 2
+ No. of unused components: 2 (7.22%)
 
  Unused components:
   - app/app-tab-panel
@@ -40,6 +40,31 @@ Searching for unused components:
 ```
 
 If you feel like there are too many components listed then check [Configuration Section](#configuration).
+
+#### Stats
+
+Make sure to try optional parameter `--stats` so you'll see some interesting stuff:
+
+```
+$ ember-unused-components --stats
+
+ No. of components: 304
+ No. of unused components: 8 (2.63%)
+
+ Unused components:
+  - report-header
+  - report-row-title
+  - reports-settings-dropdown
+  - ui-checkbox-list
+  - ui-manage-screen-title
+  - ui-phone/-body/-message
+  - ui-table/-cell-currency
+  - ui-table/-cell-date
+
+ The most used component: ui-form-button (49 occurrences)
+ The number of components used just once: 138 (45.39%)
+ Usage of {{curly-braces}} vs <AngleBrackets> syntax: 629 (71.32%) vs 253 (28.68%)
+```
 
 ### Advanced usage
 

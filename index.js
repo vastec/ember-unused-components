@@ -40,7 +40,7 @@ function main() {
   analyser.respectWhitelist(config.whitelist);
 
   console.log(colors.dim('[3/3]'), '✔️  Done');
-  analyser.logResults();
+  analyser.logResults(commandOptions.stats);
 }
 
 main();

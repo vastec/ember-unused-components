@@ -9,6 +9,15 @@ This is no longer an Ember addon but a NodeJS command-line script. The reasons f
 - It gives more freedom when it comes to testing. Finally, we have multiple Ember app instances with a different configuration for testing purposes.
 That gives us more confidence when introducing changes.
 
+**FEATURES:**
+
+- Support for `<AngleBrackets>` components
+- Show percentage of unused components in the report
+- Stats module that shows:
+  - The most used component
+  - The number of components used just once
+  - Usage of `{{curly-braces}}` vs `<AngleBrackets>` syntax
+
 ## 0.2.0 (June 29, 2018)
 
 **BUG FIXES:**
