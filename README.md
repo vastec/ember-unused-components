@@ -171,10 +171,10 @@ module.exports = {
 Removing components
 ------------------------------------------------------------------------------
 
-Please raise an issue if you would like to see that functionality. It might be useful. But please consider that simple removal of:
- - `template.hbs`
- - `component.js`
- - `style.sass` (if you use `ember-component-css`)
+Auto removing components might be useful but it's not yet supported. Please consider that simple removal of:
+ - `template.hbs` or `templates/component-name.hbs`
+ - `component.js` or `components/component-name.js`
+ - `style.css` or `styles/components/style.css`
 
 might not remove everything you would like. Examples:
 
