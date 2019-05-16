@@ -5,8 +5,9 @@ Every test app had its purpose. There is more to test with higher versions that 
 
 ## LTS 3.4
 
-- angle brackets components
 - classic structure
+- curly braces components
+- angle brackets components
 
 ## LTS 2.18 POD
 
