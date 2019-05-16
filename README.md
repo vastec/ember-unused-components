@@ -3,7 +3,7 @@
 ember-unused-components
 ==============================================================================
 
-This script searches for unused components in your Ember project. It supports classic and POD structures, ignoring files and whitelisting components unused temporary.
+This script searches for unused components in your Ember project. It supports classic and POD structures, `{{curly-braces}}` and `<AngleBrackets>` syntax, ignoring files and whitelisting components unused temporary.
 
 Installation
 ------------------------------------------------------------------------------
