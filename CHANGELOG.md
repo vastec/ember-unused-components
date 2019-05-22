@@ -11,12 +11,23 @@ That gives us more confidence when introducing changes.
 
 **FEATURES:**
 
-- Support for `<AngleBrackets>` components
+- Support for `<AngleBrackets>` components (also nested ones, e.g. `<User::UserCard/>`)
+- Support for `ember-light-table`'s way of defining `cellComponent: 'component-name'` and `component: 'component-name'`
+- Support for `(component "component-name")` helper used in templates
 - Show percentage of unused components in the report
 - Stats module that shows:
   - The most used component
   - The number of components used just once
   - Usage of `{{curly-braces}}` vs `<AngleBrackets>` syntax
+  - Usage of (component "component-name") helper in templates
+  - Usage in JS files (e.g. through `import` or ELT)
+- Show occurrences of a component (use `--occurrences` or `--o` argument). Example:
+```
+user/user-card:
+
+ > ./app/templates/application.hbs
+  - {{user/user-card}}
+```
 
 ## 0.2.0 (June 29, 2018)
 

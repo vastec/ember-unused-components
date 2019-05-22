@@ -3,7 +3,17 @@
 ember-unused-components
 ==============================================================================
 
-This script searches for unused components in your Ember project. It supports classic and POD structures, `{{curly-braces}}` and `<AngleBrackets>` syntax, ignoring files and whitelisting components unused temporary.
+This script searches for unused components in your Ember project. It supports:
+ - classic structure,
+ - POD structures,
+ - `{{curly-braces}}` syntax,
+ - `<AngleBrackets>` syntax (also nested ones like `<Angle::MyBrackets>`),
+ - `ember-light-table`'s way of defining `cellComponent: 'component-name'` and `component: 'component-name'`
+ - `(component "component-name")` helper used in templates
+ - ignoring files,
+ - and whitelisting components unused temporary.
+ 
+It also has a very interesting statistics module.
 
 Installation
 ------------------------------------------------------------------------------
@@ -61,9 +71,31 @@ $ ember-unused-components --stats
   - ui-table/-cell-currency
   - ui-table/-cell-date
 
- The most used component: ui-form-button (49 occurrences)
- The number of components used just once: 138 (45.39%)
- Usage of {{curly-braces}} vs <AngleBrackets> syntax: 629 (71.32%) vs 253 (28.68%)
+ The most used component: ui-form-button (101 occurrences)
+ The number of components used just once: 171 (56.25%)
+ Usage of {{curly-braces}} vs <AngleBrackets> syntax: 509 (56.81%) vs 387 (43.19%)
+ Usage of (component "component-name") helper in templates: 70
+ Usage in JS files (e.g. through `import` or ELT): 63
+```
+
+#### Occurrences
+
+You can also print all occurrences of components that were found. Use `--occurrences` or `--o`:
+
+```bash
+$ ember-unused-components --occurrences
+
+// simplified
+
+user-avatar:
+
+   > ./app/templates/components/user-card.hbs
+    - <UserAvatar @src={{_imageSource}} />
+
+welcome-page:
+
+   > ./app/templates/application.hbs
+    - {{welcome-page}}
 ```
 
 ### Advanced usage
