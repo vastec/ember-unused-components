@@ -8,6 +8,7 @@ test('2.18 LTS - get config', t => {
     appPath: '/test-apps/ember_lts_2_18/app/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
+    useModuleUnification: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_2_18/app/components',
   };
@@ -22,6 +23,7 @@ test('2.18 LTS - map components', t => {
     appPath: '/test-apps/ember_lts_2_18/app/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
+    useModuleUnification: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_2_18/app/components',
   };
@@ -63,6 +65,7 @@ test('2.18 LTS - look for unused components and calculate stats', t => {
     appPath: '/test-apps/ember_lts_2_18/app/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
+    useModuleUnification: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_2_18/app/components',
   };

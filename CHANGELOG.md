@@ -14,6 +14,7 @@ That gives us more confidence when introducing changes.
 - Support for `<AngleBrackets>` components (also nested ones, e.g. `<User::UserCard/>`)
 - Support for `ember-light-table`'s way of defining `cellComponent: 'component-name'` and `component: 'component-name'`
 - Support for `(component "component-name")` helper used in templates
+- Support for Module Unification structure
 - Show percentage of unused components in the report
 - Stats module that shows:
   - The most used component

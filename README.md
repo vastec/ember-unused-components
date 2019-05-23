@@ -5,7 +5,8 @@ ember-unused-components
 
 This script searches for unused components in your Ember project. It supports:
  - classic structure,
- - POD structures,
+ - POD structure,
+ - Module Unification structure,
  - `{{curly-braces}}` syntax,
  - `<AngleBrackets>` syntax (also nested ones like `<Angle::MyBrackets>`),
  - `ember-light-table`'s way of defining `cellComponent: 'component-name'` and `component: 'component-name'`

@@ -3,6 +3,13 @@ Test apps
 
 Every test app had its purpose. There is more to test with higher versions that introduce new syntax and configuration options. 
 
+## 3.10 + Module Unification
+
+- module unification structure (this is an experimental feature so we are looking for `EMBER_MODULE_UNIFICATION` in features in `environment.js`)
+- curly braces components
+- angle brackets components
+- nested angle brackets components (out of the box in 3.10, no polyfill required)
+
 ## LTS 3.8 Octane
 
 - classic structure (at some point Module Unification was a part of Octane but [it's not anymore](https://blog.emberjs.com/2019/03/11/update-on-module-unification-and-octane.html) )
