@@ -15,6 +15,9 @@ Every test app had its purpose. There is more to test with higher versions that 
 - curly braces components
 - angle brackets components
 - nested angle brackets components (supported via [ember-angle-bracket-invocation-polyfill](https://github.com/rwjblue/ember-angle-bracket-invocation-polyfill))
+  - polyfill works since Ember 2.12 but officially angle brackets components are supported since version 3.4 so that's the version where we start writing tests for it
+  - polyfill is not needed since Ember 3.10
+  - that doesn't change the behavior of the script as it doesn't check if you use Ember version or polyfill that supports the feature
 
 ## LTS 2.18 POD
 
