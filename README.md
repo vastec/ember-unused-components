@@ -1,4 +1,5 @@
 [![npm version](https://badge.fury.io/js/ember-unused-components.svg)](https://badge.fury.io/js/ember-unused-components)
+[![Build Status](https://travis-ci.org/vastec/ember-unused-components.svg?branch=master)](https://travis-ci.org/vastec/ember-unused-components)
 
 ember-unused-components
 ==============================================================================
