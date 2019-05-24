@@ -21,7 +21,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```bash
-$ yarn add ember-unused-components
+$ yarn add -D ember-unused-components
 ```
 
 or
