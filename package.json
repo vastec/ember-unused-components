@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Search for unused components in your Ember project",
   "keywords": [
-    "ember-addon",
     "ember",
     "components",
     "cleanup",
