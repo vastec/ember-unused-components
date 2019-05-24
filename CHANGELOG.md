@@ -1,6 +1,6 @@
 # ember-unused-components CHANGELOG
 
-## 1.0.0 (in progress)
+## 1.0.0
 
 **COMPLETE REWRITE:**
 
