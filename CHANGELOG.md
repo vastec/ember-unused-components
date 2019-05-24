@@ -30,6 +30,9 @@ user/user-card:
   - {{user/user-card}}
 ```
 
+**Maintenance:**
+- Running Travis CI
+
 ## 0.2.0 (June 29, 2018)
 
 **BUG FIXES:**
