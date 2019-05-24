@@ -1,6 +1,6 @@
 # ember-unused-components CHANGELOG
 
-## 1.0.0
+## 1.0.0 (May 24, 2019)
 
 **COMPLETE REWRITE:**
 
@@ -30,7 +30,7 @@ user/user-card:
   - {{user/user-card}}
 ```
 
-**Maintenance:**
+**MAINTENANCE:**
 - Running Travis CI
 
 ## 0.2.0 (June 29, 2018)
