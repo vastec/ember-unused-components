@@ -1,5 +1,10 @@
 # ember-unused-components CHANGELOG
 
+## 1.0.1 (May 24, 2019)
+
+**FIX:**
+- `ember-addon` removed from `keywords` in `package.json` to prevent ember from running `index.js` on startup
+
 ## 1.0.0 (May 24, 2019)
 
 **COMPLETE REWRITE:**
