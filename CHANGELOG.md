@@ -1,5 +1,13 @@
 # ember-unused-components CHANGELOG
 
+## 1.0.2 (June 5, 2019)
+
+**FIX:**
+- Prepared to be run in an empty project (no usage in percentage calculations etc...)
+
+**MAINTENANCE:**
+- Dependencies upgrade: `colors@1.3.3`, `fs-extra@8.0.1`, `ava@2.0.0`, `eslint-config-prettier@4.3.0`, `eslint-plugin-node@9.1.0`
+  
 ## 1.0.1 (May 24, 2019)
 
 **FIX:**
