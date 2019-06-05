@@ -36,7 +36,13 @@ Usage
 Run in your app root directory:
 
 ```bash
-$ ember-unused-components
+$ ./node_modules/.bin/ember-unused-components
+```
+
+or
+
+```bash
+$ npx ember-unused-components
 ```
 
 Expected output (simplified):
@@ -58,7 +64,7 @@ If you feel like there are too many components listed then check [Configuration 
 Make sure to try optional parameter `--stats` so you'll see some interesting stuff:
 
 ```bash
-$ ember-unused-components --stats
+$ npx ember-unused-components --stats
 
  No. of components: 304
  No. of unused components: 8 (2.63%)
@@ -85,7 +91,7 @@ $ ember-unused-components --stats
 You can also print all occurrences of components that were found. Use `--occurrences` or `--o`:
 
 ```bash
-$ ember-unused-components --occurrences
+$ npx ember-unused-components --occurrences
 
 // simplified
 
@@ -111,7 +117,7 @@ If you have problems with that, consider:
 To force using POD use `--pods` argument (alias: `-p`). Like this:
 
 ```bash
-$ ember-unused-components --pods
+$ npx ember-unused-components --pods
 ```
 
 The script will use the default directory of POD components: `app/modules/components`
@@ -121,7 +127,7 @@ The script will use the default directory of POD components: `app/modules/compon
 Your app should be configured to have `podModulePrefix` property in `config/environment.js` if you are using POD but if it somehow doesn't work you can specify it through `--pods-dir` (alias: `-pd`). Like this:
 
 ```bash
-$ ember-unused-components --pods --pods-dir="modules/components-repository"
+$ npx ember-unused-components --pods --pods-dir="modules/components-repository"
 ```
 
 Configuration
@@ -263,7 +269,7 @@ does not support certain "features" like angle brackets components or module uni
 
 ### Debugging
 
-* `ember-unused-components --debug`
+* `npx ember-unused-components --debug`
 
 License
 ------------------------------------------------------------------------------
