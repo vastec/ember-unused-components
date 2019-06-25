@@ -16,6 +16,13 @@ Every test app had its purpose. There is more to test with higher versions that 
 - curly braces components
 - angle brackets components (new test for this statement: "Single word component names are completely OK in angle bracket form") 
 
+## LTS 3.4 POD without `podModulePrefix` set
+
+- PODs structure (we use guessing algorithm to understand that)
+- curly braces components
+- angle brackets components
+- nested angle brackets components (supported via [ember-angle-bracket-invocation-polyfill](https://github.com/rwjblue/ember-angle-bracket-invocation-polyfill))
+
 ## LTS 3.4
 
 - classic structure
