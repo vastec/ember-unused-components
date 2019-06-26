@@ -120,7 +120,7 @@ To force using POD use `--pods` argument (alias: `-p`). Like this:
 $ npx ember-unused-components --pods
 ```
 
-The script will use the default directory of POD components: `app/modules/components`
+The script will use the default directory of POD components: `app/components`. **Please let me know** if you had to force using POD. I made a simple guessing algorithm that should handle PODs out-of-the-box. 
 
 #### Forcing POD with the custom directory
 

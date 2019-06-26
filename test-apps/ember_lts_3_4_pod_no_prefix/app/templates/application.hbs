@@ -1,0 +1,21 @@
+<h2 id="title">Welcome to ember-unused-components</h2>
+
+{{user/user-card}}
+{{y-button}}
+
+<MiniButton/>
+<HugeButton @name="huge"/>
+
+<Something::Quite::DeepDeep/>
+
+{{outlet}}
+
+{{!--
+  *** TEST CASE - find ***
+
+  Test cases:
+    - {{curly-braces}} component
+    - <AngleBrackets/> component
+    - <AngleBrackets @something="something"> component
+    - nested <Angle::Brackets:CompoNents/>
+--}}
