@@ -1,6 +1,6 @@
 # ember-unused-components CHANGELOG
 
-## 1.0.3 (in progress)
+## 1.0.3 (June 26, 2019)
 
 **FIX:**
 - Support POD structure when `podModulePrefix` is empty
