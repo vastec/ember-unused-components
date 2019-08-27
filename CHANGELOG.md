@@ -1,16 +1,17 @@
 # ember-unused-components CHANGELOG
 
-## `master` (to release)
+## 1.0.4 (August 27, 2019)
 
 **MAINTENANCE:**
+- ([#19](https://github.com/vastec/ember-unused-components/pull/19)) Bump eslint-config-prettier from `4.3.0` to `6.1.0`
 - ([#20](https://github.com/vastec/ember-unused-components/pull/20)) [Security] Bump lodash.merge from `4.6.1` to `4.6.2`
+- ([#21](https://github.com/vastec/ember-unused-components/pull/21) [#28](https://github.com/vastec/ember-unused-components/pull/28)) Bump eslint from `5.16.0` to `6.2.2`
 - ([#22](https://github.com/vastec/ember-unused-components/pull/22)) [Security] Bump lodash from `4.17.11` to `4.17.15`
-- ([#21](https://github.com/vastec/ember-unused-components/pull/21)) Bump eslint from `5.16.0` to `6.2.1`
-- ([#25](https://github.com/vastec/ember-unused-components/pull/25)) Bump yargs from `13.2.4` to `14.0.0`
 - ([#23](https://github.com/vastec/ember-unused-components/pull/23)) Bump ava from `2.1.0` to `2.3.0`
 - ([#24](https://github.com/vastec/ember-unused-components/pull/24)) Bump fs-extra from `8.0.1` to `8.1.0`
-- ([#19](https://github.com/vastec/ember-unused-components/pull/19)) Bump eslint-config-prettier from `4.3.0` to `6.1.0`
+- ([#25](https://github.com/vastec/ember-unused-components/pull/25)) Bump yargs from `13.2.4` to `14.0.0`
 - ([#26](https://github.com/vastec/ember-unused-components/pull/26)) Bump prettier from `1.17.1` to `1.18.2`
+- ([#29](https://github.com/vastec/ember-unused-components/pull/29)) [Security] Bump eslint-utils from `1.3.1` to `1.4.2`
 
 ## 1.0.3 (June 26, 2019)
 
