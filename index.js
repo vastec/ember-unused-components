@@ -44,7 +44,7 @@ function main() {
   analyser.logResults(commandOptions.stats, commandOptions.occurrences, config.whitelist);
 
   if (isCi && analyser.unusedComponents.length) {
-    throw new Error(`You have ${analyser.unusedComponents.length}`);
+    throw new Error(`You have ${analyser.unusedComponents.length} unused component.`);
   }
 }
 
