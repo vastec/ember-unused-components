@@ -42,7 +42,9 @@ function main() {
   console.log(colors.dim('[3/3]'), '✔️  Done');
   analyser.logResults(commandOptions.stats, commandOptions.occurrences, config.whitelist);
 
-  process.exit(analyser.unusedComponents.length); // any exit code besides 0 will fail in CI
+  if (analyser.unusedComponents.length) {
+    throw new Error(`You have ${analyser.unusedComponents.length}`);
+  }
 }
 
 main();
