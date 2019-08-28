@@ -41,6 +41,8 @@ function main() {
 
   console.log(colors.dim('[3/3]'), '✔️  Done');
   analyser.logResults(commandOptions.stats, commandOptions.occurrences, config.whitelist);
+ 
+  return ~~(commandOptions.occurences.length > 0);
 }
 
 main();
