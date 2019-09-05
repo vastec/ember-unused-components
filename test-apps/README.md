@@ -48,5 +48,5 @@ Every test app had its purpose. There is more to test with higher versions that 
 It's handy to use these apps as a reference when developing a feature of fixing a bug. Use them by specifying `--path`:
 
 ```bash
-$ ember-unused-components --path="/test-apps/ember_lts_3_4_pod_no_prefix/" --stats
+$ ./index.js --path="/test-apps/ember_lts_3_4_pod_no_prefix/" --stats
 ```
