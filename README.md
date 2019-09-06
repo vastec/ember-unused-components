@@ -235,7 +235,7 @@ Passing the `--fail-on-unused` flag to the cli:
 ./node_modules/.bin/ember-unused-components --fail-on-unused
 ```
 
-The `.eurc.js` configuration file takes precedence over the cli argument.
+The `.eucrc.js` configuration file takes precedence over the cli argument.
 
 Removing components
 ------------------------------------------------------------------------------
