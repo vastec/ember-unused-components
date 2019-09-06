@@ -3,7 +3,6 @@
 'use strict';
 
 const colors = require('colors/safe');
-const isCi = require('is-ci');
 
 const analyser = require('./lib/analyser');
 const args = require('./lib/arguments');
@@ -43,8 +42,8 @@ function main() {
   console.log(colors.dim('[3/3]'), '✔️  Done');
   analyser.logResults(commandOptions.stats, commandOptions.occurrences, config.whitelist);
 
-  if (isCi && analyser.unusedComponents.length) {
-    throw new Error(`You have ${analyser.unusedComponents.length} unused component.`);
+  if (config.failOnUnused && analyser.unusedComponents.length) {
+    throw new Error(`You have ${analyser.unusedComponents.length} unused components.`);
   }
 }
 
