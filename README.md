@@ -144,7 +144,7 @@ module.exports = {
   ignore: [
     'app/templates/freestyle.hbs' // this is our template with style guides
   ],
-  failOnUnused: false // should we throw errors when we find unused components (useful in CI)
+  failOnUnused: false // optional, default is false, should we throw errors when we find unused components (useful in CI)
 };
 ```
 
