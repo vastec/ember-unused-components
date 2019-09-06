@@ -11,6 +11,7 @@ test('3.8 LTS Octane - get config', t => {
     useModuleUnification: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_3_8_octane/app/components',
+    failOnUnused: false,
   };
   let commandOptions = { path: '/test-apps/ember_lts_3_8_octane/' };
   let result = utils.getConfig(commandOptions);

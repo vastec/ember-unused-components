@@ -11,6 +11,7 @@ test('3.10 + Module Unification - get config', t => {
     useModuleUnification: true,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_3_10_mu/src/ui/components',
+    failOnUnused: false,
   };
   let commandOptions = { path: '/test-apps/ember_3_10_mu/' };
   let result = utils.getConfig(commandOptions);
