@@ -1,5 +1,16 @@
 # ember-unused-components CHANGELOG
 
+## On `master`, to release
+
+**FEATURES:**
+
+- ([#31](https://github.com/vastec/ember-unused-components/pull/31)) New option `failOnUnused` which throws and error when unused components were found (useful for CI) 
+
+**MAINTENANCE:**
+- ([#32](https://github.com/vastec/ember-unused-components/pull/32)) Bump eslint from `6.2.2` to `6.3.0`
+- ([#33](https://github.com/vastec/ember-unused-components/pull/33)) Bump eslint-plugin-node from `9.1.0` to `9.2.0`
+- ([#34](https://github.com/vastec/ember-unused-components/pull/34)) Improve a hint how to use tests-app in development
+
 ## 1.0.4 (August 27, 2019)
 
 **MAINTENANCE:**
