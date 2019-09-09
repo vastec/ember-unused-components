@@ -11,6 +11,7 @@ test('3.4 LTS - get config', t => {
     useModuleUnification: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_3_4/app/components',
+    failOnUnused: false,
   };
   let commandOptions = { path: '/test-apps/ember_lts_3_4/' };
   let result = utils.getConfig(commandOptions);

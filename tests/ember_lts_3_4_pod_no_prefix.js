@@ -11,6 +11,7 @@ test('3.4 LTS POD no prefix - get config', t => {
     useModuleUnification: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_3_4_pod_no_prefix/app/components',
+    failOnUnused: false,
   };
   let commandOptions = { path: '/test-apps/ember_lts_3_4_pod_no_prefix/' };
   let result = utils.getConfig(commandOptions);

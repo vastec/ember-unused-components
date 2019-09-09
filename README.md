@@ -143,7 +143,8 @@ module.exports = {
   ],
   ignore: [
     'app/templates/freestyle.hbs' // this is our template with style guides
-  ]
+  ],
+  failOnUnused: false // optional, default is false, should we throw errors when we find unused components (useful in CI)
 };
 ```
 
@@ -207,6 +208,34 @@ module.exports = {
   ]
 };
 ```
+
+### Fail on unused
+
+You might want to throw errors when unused components are found. This is especially useful when running in CI.  This behavior is turned off by default.
+
+Turn this behavior on in 2 ways:
+
+Setting the `failOnUnused` property of your `.eucrc.js` file to `true`.
+
+```js
+module.exports = {
+  failOnUnused: true
+};
+
+// In practice, it might look something like this:
+
+module.exports = {
+  failOnUnused: process.env.CI // many CI services like Travis-ci and Circle-ci inject a CI env variable by default.
+};
+```
+
+Passing the `--fail-on-unused` flag to the cli:
+
+```bash
+./node_modules/.bin/ember-unused-components --fail-on-unused
+```
+
+The `.eucrc.js` configuration file takes precedence over the cli argument.
 
 Removing components
 ------------------------------------------------------------------------------
