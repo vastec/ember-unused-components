@@ -2,14 +2,22 @@
 
 ## On `master`, to release
 
+Nothing new yet
+
+## 1.1.0 (September 10, 2019)
+
+Although, there are no breaking changes this version is released as a new minor version (not a patch version). It introduces a new option (`failOnUnused`) which is switched off by default but in general can be dangerous for some projects. The package files were reduced so it also introduces some danger here.
+
 **FEATURES:**
 
 - ([#31](https://github.com/vastec/ember-unused-components/pull/31)) New option `failOnUnused` which throws and error when unused components were found (useful for CI) 
 
 **MAINTENANCE:**
 - ([#32](https://github.com/vastec/ember-unused-components/pull/32)) Bump eslint from `6.2.2` to `6.3.0`
-- ([#33](https://github.com/vastec/ember-unused-components/pull/33)) Bump eslint-plugin-node from `9.1.0` to `9.2.0`
+- ([#33](https://github.com/vastec/ember-unused-components/pull/33) [#36](https://github.com/vastec/ember-unused-components/pull/36)) Bump eslint-plugin-node from `9.1.0` to `10.0.0`
 - ([#34](https://github.com/vastec/ember-unused-components/pull/34)) Improve a hint how to use tests-app in development
+- ([#35](https://github.com/vastec/ember-unused-components/pull/34)) Bump eslint-config-prettier from `6.1.0` to `6.2.0`
+- ([#38](https://github.com/vastec/ember-unused-components/pull/38)) Specify library files in package.json - npm package size reduced from 2.2MB to 42.1kB (unpacked)
 
 ## 1.0.4 (August 27, 2019)
 
