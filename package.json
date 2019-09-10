@@ -21,6 +21,10 @@
     "lint": "eslint .",
     "test": "ava"
   },
+  "files": [
+    "lib",
+    "index.js"
+  ],
   "dependencies": {
     "colors": "1.3.3",
     "fs-extra": "8.1.0",
