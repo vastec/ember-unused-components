@@ -9,6 +9,7 @@ test('2.18 LTS POD - get config', t => {
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
     useModuleUnification: false,
+    includeAddons: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_2_18_pod/app/modules/components',
     failOnUnused: false,

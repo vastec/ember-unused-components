@@ -9,6 +9,7 @@ test('3.4 LTS POD no prefix - get config', t => {
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
     useModuleUnification: false,
+    includeAddons: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_3_4_pod_no_prefix/app/components',
     failOnUnused: false,

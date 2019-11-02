@@ -9,6 +9,7 @@ test('3.10 + Module Unification - get config', t => {
     ignore: ['src/ui/routes/application/freestyle.hbs'],
     usePods: false,
     useModuleUnification: true,
+    searchAddons: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_3_10_mu/src/ui/components',
     failOnUnused: false,

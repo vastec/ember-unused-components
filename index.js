@@ -34,6 +34,7 @@ function main() {
   // Main sequence
   console.log(colors.dim('[1/3]'), '🗺️  Mapping the project...');
   analyser.mapComponents(config);
+  analyser.mapAddonComponents(config);
 
   console.log(colors.dim('[2/3]'), '🔍 Looking for components usage...');
   analyser.scanProject(config);

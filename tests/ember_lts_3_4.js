@@ -9,6 +9,7 @@ test('3.4 LTS - get config', t => {
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
     useModuleUnification: false,
+    includeAddons: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_3_4/app/components',
     failOnUnused: false,

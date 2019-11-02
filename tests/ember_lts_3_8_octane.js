@@ -9,6 +9,7 @@ test('3.8 LTS Octane - get config', t => {
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
     useModuleUnification: false,
+    includeAddons: false,
     whitelist: ['z-button'],
     componentsPath: '/test-apps/ember_lts_3_8_octane/app/components',
     failOnUnused: false,
