@@ -5,13 +5,14 @@ const utils = require('../lib/utils');
 
 test('2.18 LTS POD - get config', t => {
   let expectedConfig = {
-    appPath: '/test-apps/ember_lts_2_18_pod/app/',
+    appPaths: ['/test-apps/ember_lts_2_18_pod/app/'],
+    projectRoot: '/test-apps/ember_lts_2_18_pod/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
     useModuleUnification: false,
     includeAddons: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_lts_2_18_pod/app/modules/components',
+    searchPaths: ['/test-apps/ember_lts_2_18_pod/app/modules/components'],
     failOnUnused: false,
   };
   let commandOptions = { path: '/test-apps/ember_lts_2_18_pod/' };
@@ -22,12 +23,13 @@ test('2.18 LTS POD - get config', t => {
 
 test('2.18 LTS POD - map components', t => {
   let config = {
-    appPath: '/test-apps/ember_lts_2_18_pod/app/',
+    appPaths: ['/test-apps/ember_lts_2_18_pod/app/'],
+    projectRoot: '/test-apps/ember_lts_2_18_pod/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
     useModuleUnification: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_lts_2_18_pod/app/modules/components',
+    searchPaths: ['/test-apps/ember_lts_2_18_pod/app/modules/components'],
   };
 
   let expectedComponents = [
@@ -64,12 +66,13 @@ test('2.18 LTS POD - map components', t => {
 
 test('2.18 LTS POD - look for unused components and calculate stats', t => {
   let config = {
-    appPath: '/test-apps/ember_lts_2_18_pod/app/',
+    appPaths: ['/test-apps/ember_lts_2_18_pod/app/'],
+    projectRoot: '/test-apps/ember_lts_2_18_pod/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
     useModuleUnification: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_lts_2_18_pod/app/modules/components',
+    searchPaths: ['/test-apps/ember_lts_2_18_pod/app/modules/components'],
   };
 
   let expectedComponents = [

@@ -5,16 +5,15 @@ const utils = require('../lib/utils');
 
 test('3.10 + Module Unification - get config', t => {
   let expectedConfig = {
-    appPath: '/test-apps/ember_3_10_mu/src/',
+    appPaths: ['/test-apps/ember_3_10_mu/src'],
+    projectRoot: '/test-apps/ember_3_10_mu',
     ignore: ['src/ui/routes/application/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: true,
-    searchAddons: false,
+    includeAddons: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_3_10_mu/src/ui/components',
+    searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
     failOnUnused: false,
   };
-  let commandOptions = { path: '/test-apps/ember_3_10_mu/' };
+  let commandOptions = { path: '/test-apps/ember_3_10_mu' };
   let result = utils.getConfig(commandOptions);
 
   t.deepEqual(result, expectedConfig, 'has proper config');
@@ -22,12 +21,11 @@ test('3.10 + Module Unification - get config', t => {
 
 test('3.10 + Module Unification - map components', t => {
   let config = {
-    appPath: '/test-apps/ember_3_10_mu/src/',
+    appPaths: ['/test-apps/ember_3_10_mu/src'],
+    projectRoot: '/test-apps/ember_3_10_mu/',
     ignore: ['src/ui/routes/application/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: true,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_3_10_mu/src/ui/components',
+    searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
   };
 
   let expectedComponents = [
@@ -68,9 +66,13 @@ test('3.10 + Module Unification - map components', t => {
 
   analyser.mapComponents(config);
 
-  t.deepEqual(analyser.components, expectedComponents, 'has proper list of components');
   t.deepEqual(
-    analyser.unusedComponents,
+    analyser.components.map(c => c.name),
+    expectedComponents,
+    'has proper list of components'
+  );
+  t.deepEqual(
+    analyser.unusedComponents.map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -78,12 +80,13 @@ test('3.10 + Module Unification - map components', t => {
 
 test('3.10 + Module Unification - look for unused components and calculate stats', t => {
   let config = {
-    appPath: '/test-apps/ember_3_10_mu/src/',
+    appPaths: ['/test-apps/ember_3_10_mu/src/'],
+    projectRoot: '/test-apps/ember_3_10_mu/',
     ignore: ['src/ui/routes/application/freestyle.hbs'],
     usePods: false,
     useModuleUnification: true,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_3_10_mu/src/ui/components',
+    searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
   };
 
   let expectedComponents = [

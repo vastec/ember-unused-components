@@ -5,13 +5,14 @@ const utils = require('../lib/utils');
 
 test('3.4 LTS - get config', t => {
   let expectedConfig = {
-    appPath: '/test-apps/ember_lts_3_4/app/',
+    appPaths: ['/test-apps/ember_lts_3_4/app/'],
+    projectRoot: '/test-apps/ember_lts_3_4/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
     useModuleUnification: false,
     includeAddons: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_lts_3_4/app/components',
+    searchPaths: ['/test-apps/ember_lts_3_4/app/components'],
     failOnUnused: false,
   };
   let commandOptions = { path: '/test-apps/ember_lts_3_4/' };
@@ -22,12 +23,13 @@ test('3.4 LTS - get config', t => {
 
 test('3.4 LTS - map components', t => {
   let config = {
-    appPath: '/test-apps/ember_lts_3_4/app/',
+    appPaths: ['/test-apps/ember_lts_3_4/app/'],
+    projectRoot: '/test-apps/ember_lts_3_4/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
     useModuleUnification: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_lts_3_4/app/components',
+    searchPaths: ['/test-apps/ember_lts_3_4/app/components'],
   };
 
   let expectedComponents = [
@@ -74,12 +76,13 @@ test('3.4 LTS - map components', t => {
 
 test('3.4 LTS - look for unused components and calculate stats', t => {
   let config = {
-    appPath: '/test-apps/ember_lts_3_4/app/',
+    appPaths: ['/test-apps/ember_lts_3_4/app/'],
+    projectRoot: '/test-apps/ember_lts_3_4/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
     useModuleUnification: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_lts_3_4/app/components',
+    searchPaths: ['/test-apps/ember_lts_3_4/app/components'],
   };
 
   let expectedComponents = [

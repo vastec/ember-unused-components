@@ -5,13 +5,14 @@ const utils = require('../lib/utils');
 
 test('3.4 LTS POD no prefix - get config', t => {
   let expectedConfig = {
-    appPath: '/test-apps/ember_lts_3_4_pod_no_prefix/app/',
+    appPaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app/'],
+    projectRoot: '/test-apps/ember_lts_3_4_pod_no_prefix/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
     useModuleUnification: false,
     includeAddons: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_lts_3_4_pod_no_prefix/app/components',
+    searchPaths: ['/test-apps/ember_lts_3_4_mixed_pod_no_prefix/app/components'],
     failOnUnused: false,
   };
   let commandOptions = { path: '/test-apps/ember_lts_3_4_pod_no_prefix/' };
@@ -22,12 +23,13 @@ test('3.4 LTS POD no prefix - get config', t => {
 
 test('3.4 LTS POD no prefix - map components', t => {
   let config = {
-    appPath: '/test-apps/ember_lts_3_4_pod_no_prefix/app/',
+    appPaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app/'],
+    projectRoot: '/test-apps/ember_lts_3_4_pod_no_prefix/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
     useModuleUnification: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_lts_3_4_pod_no_prefix/app/components',
+    searchPaths: ['/test-apps/ember_lts_3_4_mixed_pod_no_prefix/app/components'],
   };
 
   let expectedComponents = [
@@ -74,12 +76,13 @@ test('3.4 LTS POD no prefix - map components', t => {
 
 test('3.4 LTS POD no prefix - look for unused components and calculate stats', t => {
   let config = {
-    appPath: '/test-apps/ember_lts_3_4_pod_no_prefix/app/',
+    appPaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app/'],
+    projectRoot: '/test-apps/ember_lts_3_4_pod_no_prefix/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
     useModuleUnification: false,
     whitelist: ['z-button'],
-    componentsPath: '/test-apps/ember_lts_3_4_pod_no_prefix/app/components',
+    searchPaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app/components'],
   };
 
   let expectedComponents = [
