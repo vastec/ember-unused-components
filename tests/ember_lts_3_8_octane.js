@@ -8,8 +8,6 @@ test('3.8 LTS Octane - get config', t => {
     appPaths: ['/test-apps/ember_lts_3_8_octane/app'],
     projectRoot: '/test-apps/ember_lts_3_8_octane/',
     ignore: ['app/templates/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: false,
     includeAddons: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_3_8_octane/app/components'],
@@ -26,8 +24,6 @@ test('3.8 LTS Octane - map components', t => {
     appPaths: ['/test-apps/ember_lts_3_8_octane/app'],
     projectRoot: '/test-apps/ember_lts_3_8_octane/',
     ignore: ['app/templates/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_3_8_octane/app/components'],
   };
@@ -83,8 +79,6 @@ test('3.8 LTS Octane - look for unused components and calculate stats', t => {
     appPaths: ['/test-apps/ember_lts_3_8_octane/app'],
     projectRoot: '/test-apps/ember_lts_3_8_octane/',
     ignore: ['app/templates/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_3_8_octane/app/components'],
   };

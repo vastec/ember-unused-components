@@ -3,34 +3,32 @@ import test from 'ava';
 const analyser = require('../lib/analyser');
 const utils = require('../lib/utils');
 
-test('3.10 + Module Unification - get config', t => {
+test('3.4 LTS - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_3_10_mu/src'],
-    projectRoot: '/test-apps/ember_3_10_mu',
-    ignore: ['src/ui/routes/application/freestyle.hbs'],
+    appPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
+    projectRoot: '/test-apps/ember_lts_3_4_mixed_pods/',
+    ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
+    searchPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app/components'],
     failOnUnused: false,
   };
-  let commandOptions = { path: '/test-apps/ember_3_10_mu' };
+  let commandOptions = { path: '/test-apps/ember_lts_3_4_mixed_pods/' };
   let result = utils.getConfig(commandOptions);
 
   t.deepEqual(result, expectedConfig, 'has proper config');
 });
 
-test('3.10 + Module Unification - map components', t => {
+test('3.4 LTS - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_3_10_mu/src'],
-    projectRoot: '/test-apps/ember_3_10_mu/',
-    ignore: ['src/ui/routes/application/freestyle.hbs'],
+    appPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
+    projectRoot: '/test-apps/ember_lts_3_4_mixed_pods/',
+    ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
+    searchPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app/components'],
   };
 
   let expectedComponents = [
-    'alert',
-    'counter',
     'huge-button',
     'max-button',
     'medium-button',
@@ -47,8 +45,6 @@ test('3.10 + Module Unification - map components', t => {
   ];
 
   let expectedUnusedComponents = [
-    'alert',
-    'counter',
     'huge-button',
     'max-button',
     'medium-button',
@@ -78,18 +74,16 @@ test('3.10 + Module Unification - map components', t => {
   );
 });
 
-test('3.10 + Module Unification - look for unused components and calculate stats', t => {
+test('3.4 LTS - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_3_10_mu/src/'],
-    projectRoot: '/test-apps/ember_3_10_mu/',
-    ignore: ['src/ui/routes/application/freestyle.hbs'],
+    appPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
+    projectRoot: '/test-apps/ember_lts_3_4_mixed_pods/',
+    ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
+    searchPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app/components'],
   };
 
   let expectedComponents = [
-    'alert',
-    'counter',
     'huge-button',
     'max-button',
     'medium-button',
@@ -105,11 +99,9 @@ test('3.10 + Module Unification - look for unused components and calculate stats
     'z-button',
   ];
 
-  let expectedUnusedComponents = ['alert', 'max-button', 'user/user-signature'];
+  let expectedUnusedComponents = ['max-button', 'user/user-signature'];
 
   let expectedStats = {
-    alert: { name: 'alert', count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
-    counter: { name: 'counter', count: 1, curly: 0, angle: 1, js: 0, componentHelper: 0 },
     'huge-button': { name: 'huge-button', count: 1, curly: 0, angle: 1, js: 0, componentHelper: 0 },
     'max-button': { name: 'max-button', count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
     'medium-button': {
@@ -185,7 +177,7 @@ test('3.10 + Module Unification - look for unused components and calculate stats
   t.deepEqual(
     analyser.unusedComponents.map(c => c.name),
     expectedUnusedComponents,
-    'has proper list of unused components'
+    'has proper list of unused components at this stage'
   );
   t.deepEqual(analyser.stats, expectedStats, 'has properly calculated stats');
 });

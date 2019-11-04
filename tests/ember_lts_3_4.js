@@ -8,8 +8,6 @@ test('3.4 LTS - get config', t => {
     appPaths: ['/test-apps/ember_lts_3_4/app'],
     projectRoot: '/test-apps/ember_lts_3_4/',
     ignore: ['app/templates/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: false,
     includeAddons: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_3_4/app/components'],
@@ -26,8 +24,6 @@ test('3.4 LTS - map components', t => {
     appPaths: ['/test-apps/ember_lts_3_4/app'],
     projectRoot: '/test-apps/ember_lts_3_4/',
     ignore: ['app/templates/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_3_4/app/components'],
   };
@@ -83,8 +79,6 @@ test('3.4 LTS - look for unused components and calculate stats', t => {
     appPaths: ['/test-apps/ember_lts_3_4/app'],
     projectRoot: '/test-apps/ember_lts_3_4/',
     ignore: ['app/templates/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_3_4/app/components'],
   };
