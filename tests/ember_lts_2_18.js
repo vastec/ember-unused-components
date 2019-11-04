@@ -5,11 +5,9 @@ const utils = require('../lib/utils');
 
 test('2.18 LTS - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_lts_2_18/app/'],
+    appPaths: ['/test-apps/ember_lts_2_18/app'],
     projectRoot: '/test-apps/ember_lts_2_18/',
     ignore: ['app/templates/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: false,
     includeAddons: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_2_18/app/components'],
@@ -23,11 +21,9 @@ test('2.18 LTS - get config', t => {
 
 test('2.18 LTS - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_2_18/app/'],
-    projectRoot: '/test-apps/ember_lts_2_18/',
+    appPaths: ['/test-apps/ember_lts_2_18/app'],
+    projectRoot: '/test-apps/ember_lts_2_18',
     ignore: ['app/templates/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_2_18/app/components'],
   };
@@ -56,9 +52,13 @@ test('2.18 LTS - map components', t => {
 
   analyser.mapComponents(config);
 
-  t.deepEqual(analyser.components, expectedComponents, 'has proper list of components');
   t.deepEqual(
-    analyser.unusedComponents,
+    analyser.components.map(c => c.name),
+    expectedComponents,
+    'has proper list of components'
+  );
+  t.deepEqual(
+    analyser.unusedComponents.map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -66,11 +66,9 @@ test('2.18 LTS - map components', t => {
 
 test('2.18 LTS - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_2_18/app/'],
-    projectRoot: '/test-apps/ember_lts_2_18/',
+    appPaths: ['/test-apps/ember_lts_2_18/app'],
+    projectRoot: '/test-apps/ember_lts_2_18',
     ignore: ['app/templates/freestyle.hbs'],
-    usePods: false,
-    useModuleUnification: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_2_18/app/components'],
   };
@@ -137,11 +135,15 @@ test('2.18 LTS - look for unused components and calculate stats', t => {
   analyser.scanProject(config);
   analyser.respectWhitelist(config.whitelist);
 
-  t.deepEqual(analyser.components, expectedComponents, 'has proper list of components');
   t.deepEqual(
-    analyser.unusedComponents,
+    analyser.components.map(c => c.name),
+    expectedComponents,
+    'has proper list of components'
+  );
+  t.deepEqual(
+    analyser.unusedComponents.map(c => c.name),
     expectedUnusedComponents,
-    'has proper list of unused components'
+    'has proper list of unused components at this stage'
   );
   t.deepEqual(analyser.stats, expectedStats, 'has properly calculated stats');
 });

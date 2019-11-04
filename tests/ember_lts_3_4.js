@@ -5,7 +5,7 @@ const utils = require('../lib/utils');
 
 test('3.4 LTS - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_lts_3_4/app/'],
+    appPaths: ['/test-apps/ember_lts_3_4/app'],
     projectRoot: '/test-apps/ember_lts_3_4/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
@@ -23,7 +23,7 @@ test('3.4 LTS - get config', t => {
 
 test('3.4 LTS - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_4/app/'],
+    appPaths: ['/test-apps/ember_lts_3_4/app'],
     projectRoot: '/test-apps/ember_lts_3_4/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
@@ -66,9 +66,13 @@ test('3.4 LTS - map components', t => {
 
   analyser.mapComponents(config);
 
-  t.deepEqual(analyser.components, expectedComponents, 'has proper list of components');
   t.deepEqual(
-    analyser.unusedComponents,
+    analyser.components.map(c => c.name),
+    expectedComponents,
+    'has proper list of components'
+  );
+  t.deepEqual(
+    analyser.unusedComponents.map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -76,7 +80,7 @@ test('3.4 LTS - map components', t => {
 
 test('3.4 LTS - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_4/app/'],
+    appPaths: ['/test-apps/ember_lts_3_4/app'],
     projectRoot: '/test-apps/ember_lts_3_4/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: false,
@@ -171,11 +175,15 @@ test('3.4 LTS - look for unused components and calculate stats', t => {
   analyser.scanProject(config);
   analyser.respectWhitelist(config.whitelist);
 
-  t.deepEqual(analyser.components, expectedComponents, 'has proper list of components');
   t.deepEqual(
-    analyser.unusedComponents,
+    analyser.components.map(c => c.name),
+    expectedComponents,
+    'has proper list of components'
+  );
+  t.deepEqual(
+    analyser.unusedComponents.map(c => c.name),
     expectedUnusedComponents,
-    'has proper list of unused components'
+    'has proper list of unused components at this stage'
   );
   t.deepEqual(analyser.stats, expectedStats, 'has properly calculated stats');
 });

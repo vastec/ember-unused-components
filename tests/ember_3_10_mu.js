@@ -179,9 +179,13 @@ test('3.10 + Module Unification - look for unused components and calculate stats
   analyser.scanProject(config);
   analyser.respectWhitelist(config.whitelist);
 
-  t.deepEqual(analyser.components, expectedComponents, 'has proper list of components');
   t.deepEqual(
-    analyser.unusedComponents,
+    analyser.components.map(c => c.name),
+    expectedComponents,
+    'has proper list of components'
+  );
+  t.deepEqual(
+    analyser.unusedComponents.map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components'
   );

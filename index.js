@@ -2,7 +2,6 @@
 
 'use strict';
 
-const path = require('path');
 const colors = require('colors/safe');
 
 const analyser = require('./lib/analyser');

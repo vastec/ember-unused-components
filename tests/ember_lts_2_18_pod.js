@@ -5,7 +5,7 @@ const utils = require('../lib/utils');
 
 test('2.18 LTS POD - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_lts_2_18_pod/app/'],
+    appPaths: ['/test-apps/ember_lts_2_18_pod/app'],
     projectRoot: '/test-apps/ember_lts_2_18_pod/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
@@ -15,7 +15,7 @@ test('2.18 LTS POD - get config', t => {
     searchPaths: ['/test-apps/ember_lts_2_18_pod/app/modules/components'],
     failOnUnused: false,
   };
-  let commandOptions = { path: '/test-apps/ember_lts_2_18_pod/' };
+  let commandOptions = { path: 'test-apps/ember_lts_2_18_pod/' };
   let result = utils.getConfig(commandOptions);
 
   t.deepEqual(result, expectedConfig, 'has proper config');
@@ -23,7 +23,7 @@ test('2.18 LTS POD - get config', t => {
 
 test('2.18 LTS POD - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_2_18_pod/app/'],
+    appPaths: ['/test-apps/ember_lts_2_18_pod/app'],
     projectRoot: '/test-apps/ember_lts_2_18_pod/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
@@ -56,9 +56,13 @@ test('2.18 LTS POD - map components', t => {
 
   analyser.mapComponents(config);
 
-  t.deepEqual(analyser.components, expectedComponents, 'has proper list of components');
   t.deepEqual(
-    analyser.unusedComponents,
+    analyser.components.map(c => c.name),
+    expectedComponents,
+    'has proper list of components'
+  );
+  t.deepEqual(
+    analyser.unusedComponents.map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -66,7 +70,7 @@ test('2.18 LTS POD - map components', t => {
 
 test('2.18 LTS POD - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_2_18_pod/app/'],
+    appPaths: ['/test-apps/ember_lts_2_18_pod/app'],
     projectRoot: '/test-apps/ember_lts_2_18_pod/',
     ignore: ['app/templates/freestyle.hbs'],
     usePods: true,
@@ -137,11 +141,15 @@ test('2.18 LTS POD - look for unused components and calculate stats', t => {
   analyser.scanProject(config);
   analyser.respectWhitelist(config.whitelist);
 
-  t.deepEqual(analyser.components, expectedComponents, 'has proper list of components');
   t.deepEqual(
-    analyser.unusedComponents,
+    analyser.components.map(c => c.name),
+    expectedComponents,
+    'has proper list of components'
+  );
+  t.deepEqual(
+    analyser.unusedComponents.map(c => c.name),
     expectedUnusedComponents,
-    'has proper list of unused components'
+    'has proper list of unused components at this stage'
   );
   t.deepEqual(analyser.stats, expectedStats, 'has properly calculated stats');
 });
