@@ -9,6 +9,7 @@ test('2.18 LTS POD - get config', t => {
     projectRoot: '/test-apps/ember_lts_2_18_pod/',
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
+    isAddon: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_lts_2_18_pod/app/modules/components'],
     failOnUnused: false,
@@ -53,12 +54,12 @@ test('2.18 LTS POD - map components', t => {
   analyser.mapComponents(config);
 
   t.deepEqual(
-    analyser.components.map(c => c.name),
+    Object.values(analyser.components).map(c => c.name),
     expectedComponents,
     'has proper list of components'
   );
   t.deepEqual(
-    analyser.unusedComponents.map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -136,12 +137,12 @@ test('2.18 LTS POD - look for unused components and calculate stats', t => {
   analyser.respectWhitelist(config.whitelist);
 
   t.deepEqual(
-    analyser.components.map(c => c.name),
+    Object.values(analyser.components).map(c => c.name),
     expectedComponents,
     'has proper list of components'
   );
   t.deepEqual(
-    analyser.unusedComponents.map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );

@@ -3,14 +3,18 @@ import test from 'ava';
 const analyser = require('../lib/analyser');
 const utils = require('../lib/utils');
 
-test('3.4 LTS - get config', t => {
+test('3.4 LTS Mixed Pods - get config', t => {
   let expectedConfig = {
     appPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
     projectRoot: '/test-apps/ember_lts_3_4_mixed_pods/',
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
+    isAddon: false,
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app/components'],
+    searchPaths: [
+      '/test-apps/ember_lts_3_4_mixed_pods/app/components',
+      '/test-apps/ember_lts_3_4_mixed_pods/app/templates/components',
+    ],
     failOnUnused: false,
   };
   let commandOptions = { path: '/test-apps/ember_lts_3_4_mixed_pods/' };
@@ -19,13 +23,16 @@ test('3.4 LTS - get config', t => {
   t.deepEqual(result, expectedConfig, 'has proper config');
 });
 
-test('3.4 LTS - map components', t => {
+test('3.4 LTS Mixed Pods - map components', t => {
   let config = {
     appPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
     projectRoot: '/test-apps/ember_lts_3_4_mixed_pods/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app/components'],
+    searchPaths: [
+      '/test-apps/ember_lts_3_4_mixed_pods/app/components',
+      '/test-apps/ember_lts_3_4_mixed_pods/app/templates/components',
+    ],
   };
 
   let expectedComponents = [
@@ -63,18 +70,18 @@ test('3.4 LTS - map components', t => {
   analyser.mapComponents(config);
 
   t.deepEqual(
-    analyser.components.map(c => c.name),
+    Object.values(analyser.components).map(c => c.name),
     expectedComponents,
     'has proper list of components'
   );
   t.deepEqual(
-    analyser.unusedComponents.map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
 });
 
-test('3.4 LTS - look for unused components and calculate stats', t => {
+test('3.4 LTS Mixed Pods - look for unused components and calculate stats', t => {
   let config = {
     appPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
     projectRoot: '/test-apps/ember_lts_3_4_mixed_pods/',
@@ -170,12 +177,12 @@ test('3.4 LTS - look for unused components and calculate stats', t => {
   analyser.respectWhitelist(config.whitelist);
 
   t.deepEqual(
-    analyser.components.map(c => c.name),
+    Object.values(analyser.components).map(c => c.name),
     expectedComponents,
     'has proper list of components'
   );
   t.deepEqual(
-    analyser.unusedComponents.map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );

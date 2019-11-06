@@ -9,6 +9,7 @@ test('3.10 + Module Unification - get config', t => {
     projectRoot: '/test-apps/ember_3_10_mu',
     ignore: ['src/ui/routes/application/freestyle.hbs'],
     includeAddons: false,
+    isAddon: false,
     whitelist: ['z-button'],
     searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
     failOnUnused: false,
@@ -67,12 +68,12 @@ test('3.10 + Module Unification - map components', t => {
   analyser.mapComponents(config);
 
   t.deepEqual(
-    analyser.components.map(c => c.name),
+    Object.values(analyser.components).map(c => c.name),
     expectedComponents,
     'has proper list of components'
   );
   t.deepEqual(
-    analyser.unusedComponents.map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -178,12 +179,12 @@ test('3.10 + Module Unification - look for unused components and calculate stats
   analyser.respectWhitelist(config.whitelist);
 
   t.deepEqual(
-    analyser.components.map(c => c.name),
+    Object.values(analyser.components).map(c => c.name),
     expectedComponents,
     'has proper list of components'
   );
   t.deepEqual(
-    analyser.unusedComponents.map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.name),
     expectedUnusedComponents,
     'has proper list of unused components'
   );
