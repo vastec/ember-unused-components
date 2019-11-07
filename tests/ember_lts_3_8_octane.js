@@ -70,12 +70,12 @@ test('3.8 LTS Octane - map components', t => {
   analyser.mapComponents(config);
 
   t.deepEqual(
-    Object.values(analyser.components).map(c => c.name),
+    Object.values(analyser.components).map(c => c.key),
     expectedComponents,
     'has proper list of components'
   );
   t.deepEqual(
-    Object.values(analyser.unusedComponents).map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -163,12 +163,12 @@ test('3.8 LTS Octane - look for unused components and calculate stats', t => {
   analyser.respectWhitelist(config.whitelist);
 
   t.deepEqual(
-    Object.values(analyser.components).map(c => c.name),
+    Object.values(analyser.components).map(c => c.key),
     expectedComponents,
     'has proper list of components'
   );
   t.deepEqual(
-    Object.values(analyser.unusedComponents).map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );

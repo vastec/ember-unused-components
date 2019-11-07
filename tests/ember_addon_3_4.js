@@ -5,20 +5,20 @@ const utils = require('../lib/utils');
 
 test('3.4 Addon - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_addon_3_4/addon'],
-    projectRoot: '/test-apps/ember_addon_3_4/',
+    appPaths: ['/test-apps/ember_addon_3_13/addon'],
+    projectRoot: '/test-apps/ember_addon_3_13/',
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
     isAddon: true,
     whitelist: ['z-button'],
     searchPaths: [
-      '/test-apps/ember_addon_3_4/app/components',
-      '/test-apps/ember_addon_3_4/addon/components',
-      '/test-apps/ember_addon_3_4/addon/templates/components',
+      '/test-apps/ember_addon_3_13/app/components',
+      '/test-apps/ember_addon_3_13/addon/components',
+      '/test-apps/ember_addon_3_13/addon/templates/components',
     ],
     failOnUnused: false,
   };
-  let commandOptions = { path: '/test-apps/ember_addon_3_4/' };
+  let commandOptions = { path: '/test-apps/ember_addon_3_13/' };
   let result = utils.getConfig(commandOptions);
 
   t.deepEqual(result, expectedConfig, 'has proper config');
@@ -26,15 +26,15 @@ test('3.4 Addon - get config', t => {
 
 test('3.4 Addon - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_addon_3_4/addon'],
-    projectRoot: '/test-apps/ember_addon_3_4/',
+    appPaths: ['/test-apps/ember_addon_3_13/addon'],
+    projectRoot: '/test-apps/ember_addon_3_13/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
     isAddon: true,
     searchPaths: [
-      '/test-apps/ember_addon_3_4/app/components',
-      '/test-apps/ember_addon_3_4/addon/components',
-      '/test-apps/ember_addon_3_4/addon/templates/components',
+      '/test-apps/ember_addon_3_13/app/components',
+      '/test-apps/ember_addon_3_13/addon/components',
+      '/test-apps/ember_addon_3_13/addon/templates/components',
     ],
   };
 
@@ -75,12 +75,12 @@ test('3.4 Addon - map components', t => {
   analyser.mapComponents(config);
 
   t.deepEqual(
-    Object.values(analyser.components).map(c => c.name),
+    Object.values(analyser.components).map(c => c.key),
     expectedComponents,
     'has proper list of components'
   );
   t.deepEqual(
-    Object.values(analyser.unusedComponents).map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -88,14 +88,14 @@ test('3.4 Addon - map components', t => {
 
 test('3.4 Addon - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_addon_3_4/app', '/test-apps/ember_addon_3_4/addon'],
-    projectRoot: '/test-apps/ember_addon_3_4/',
+    appPaths: ['/test-apps/ember_addon_3_13/app', '/test-apps/ember_addon_3_13/addon'],
+    projectRoot: '/test-apps/ember_addon_3_13/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
     searchPaths: [
-      '/test-apps/ember_addon_3_4/app/components',
-      '/test-apps/ember_addon_3_4/addon/components',
-      '/test-apps/ember_addon_3_4/addon/templates/components',
+      '/test-apps/ember_addon_3_13/app/components',
+      '/test-apps/ember_addon_3_13/addon/components',
+      '/test-apps/ember_addon_3_13/addon/templates/components',
     ],
   };
 
@@ -200,13 +200,13 @@ test('3.4 Addon - look for unused components and calculate stats', t => {
   analyser.respectWhitelist(config.whitelist);
 
   t.deepEqual(
-    Object.values(analyser.components).map(c => c.name),
+    Object.values(analyser.components).map(c => c.key),
     expectedComponents,
     'has proper list of components'
   );
 
   t.deepEqual(
-    Object.values(analyser.unusedComponents).map(c => c.name),
+    Object.values(analyser.unusedComponents).map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
