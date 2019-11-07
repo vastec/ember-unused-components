@@ -2,7 +2,13 @@
 
 ## On `master`, to release
 
-Nothing new yet
+**MAINTENANCE:**
+- ([#39](https://github.com/vastec/ember-unused-components/pull/39)) Bump ava from `2.3.0` to `2.4.0`
+- ([#42](https://github.com/vastec/ember-unused-components/pull/42)) Bump colors from `1.3.3` to `1.4.0`
+- ([#43](https://github.com/vastec/ember-unused-components/pull/43)) Bump eslint-plugin-prettier from `3.1.0` to `3.1.1`
+- ([#45](https://github.com/vastec/ember-unused-components/pull/45)) Bump yargs from `14.0.0` to `14.2.0`
+- ([#48](https://github.com/vastec/ember-unused-components/pull/48)) Bump eslint from `6.3.0` to `6.6.0`
+- ([#49](https://github.com/vastec/ember-unused-components/pull/49)) Bump eslint-config-prettier from `6.2.0` to `6.5.0`
 
 ## 1.1.0 (September 10, 2019)
 
