@@ -26,7 +26,7 @@
     "index.js"
   ],
   "dependencies": {
-    "colors": "1.3.3",
+    "colors": "1.4.0",
     "fs-extra": "8.1.0",
     "yargs": "^14.0.0"
   },
