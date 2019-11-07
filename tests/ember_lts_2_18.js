@@ -5,13 +5,13 @@ const utils = require('../lib/utils');
 
 test('2.18 LTS - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_lts_2_18/app'],
+    sourcePaths: ['/test-apps/ember_lts_2_18/app'],
     projectRoot: '/test-apps/ember_lts_2_18/',
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
     isAddon: false,
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_2_18/app/components',
       '/test-apps/ember_lts_2_18/app/templates/components',
     ],
@@ -25,11 +25,11 @@ test('2.18 LTS - get config', t => {
 
 test('2.18 LTS - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_2_18/app'],
+    sourcePaths: ['/test-apps/ember_lts_2_18/app'],
     projectRoot: '/test-apps/ember_lts_2_18',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_2_18/app/components',
       '/test-apps/ember_lts_2_18/app/templates/components',
     ],
@@ -73,11 +73,11 @@ test('2.18 LTS - map components', t => {
 
 test('2.18 LTS - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_2_18/app'],
+    sourcePaths: ['/test-apps/ember_lts_2_18/app'],
     projectRoot: '/test-apps/ember_lts_2_18',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_lts_2_18/app/components'],
+    componentPaths: ['/test-apps/ember_lts_2_18/app/components'],
   };
 
   let expectedComponents = [

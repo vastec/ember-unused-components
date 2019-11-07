@@ -47,7 +47,7 @@ function main() {
 
   if (commandOptions.debug) {
     console.log(colors.blue('scanned for occurrences in:'));
-    console.log(config.appPaths);
+    console.log(config.sourcePaths);
   }
 
   analyser.respectWhitelist(config.whitelist);

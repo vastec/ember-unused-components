@@ -6,7 +6,7 @@ let utils = require('../lib/utils');
 test('3.4 LTS with addons - get config', t => {
   utils.config = null;
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_lts_3_4_with_addons/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_with_addons/app'],
     addonPaths: ['/node_modules/company-buttons', '/node_modules/company-services'],
     projectRoot: '/test-apps/ember_lts_3_4_with_addons/',
     ignore: ['app/templates/freestyle.hbs'],
@@ -14,7 +14,7 @@ test('3.4 LTS with addons - get config', t => {
     filterAddonsBy: '*',
     isAddon: false,
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_3_4_with_addons/app/components',
       '/test-apps/ember_lts_3_4_with_addons/app/templates/components',
       '/test-apps/ember_lts_3_4_with_addons/node_modules/company-buttons/app/components',
@@ -32,7 +32,7 @@ test('3.4 LTS with addons - get config', t => {
 test('3.4 LTS with addons - get config with wildcard addon', t => {
   utils.config = null;
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_lts_3_4_with_addons/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_with_addons/app'],
     addonPaths: ['/node_modules/company-buttons'],
     projectRoot: '/test-apps/ember_lts_3_4_with_addons/',
     ignore: ['app/templates/freestyle.hbs'],
@@ -40,7 +40,7 @@ test('3.4 LTS with addons - get config with wildcard addon', t => {
     includeAddons: true,
     isAddon: false,
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_3_4_with_addons/app/components',
       '/test-apps/ember_lts_3_4_with_addons/app/templates/components',
       '/test-apps/ember_lts_3_4_with_addons/node_modules/company-buttons/app/components',
@@ -61,13 +61,13 @@ test('3.4 LTS with addons - get config with wildcard addon', t => {
 
 test('3.4 LTS with addon - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_4_with_addons/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_with_addons/app'],
     addonPaths: ['/node_modules/company-buttons', '/node_modules/company-services'],
     projectRoot: '/test-apps/ember_lts_3_4_with_addons/',
     includeAddons: true,
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_3_4_with_addons/app/components',
       '/test-apps/ember_lts_3_4_with_addons/app/templates/components',
       '/test-apps/ember_lts_3_4_with_addons/node_modules/company-buttons/app/components',
@@ -130,11 +130,11 @@ test('3.4 LTS with addon - map components', t => {
 
 test('3.4 LTS - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_4_with_addons/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_with_addons/app'],
     projectRoot: '/test-apps/ember_lts_3_4_with_addons/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_lts_3_4_with_addons/app/components'],
+    componentPaths: ['/test-apps/ember_lts_3_4_with_addons/app/components'],
   };
 
   let expectedComponents = [

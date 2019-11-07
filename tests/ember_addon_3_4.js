@@ -5,13 +5,13 @@ const utils = require('../lib/utils');
 
 test('3.4 Addon - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_addon_3_13/addon'],
+    sourcePaths: ['/test-apps/ember_addon_3_13/addon'],
     projectRoot: '/test-apps/ember_addon_3_13/',
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
     isAddon: true,
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_addon_3_13/app/components',
       '/test-apps/ember_addon_3_13/addon/components',
       '/test-apps/ember_addon_3_13/addon/templates/components',
@@ -26,12 +26,12 @@ test('3.4 Addon - get config', t => {
 
 test('3.4 Addon - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_addon_3_13/addon'],
+    sourcePaths: ['/test-apps/ember_addon_3_13/addon'],
     projectRoot: '/test-apps/ember_addon_3_13/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
     isAddon: true,
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_addon_3_13/app/components',
       '/test-apps/ember_addon_3_13/addon/components',
       '/test-apps/ember_addon_3_13/addon/templates/components',
@@ -88,11 +88,11 @@ test('3.4 Addon - map components', t => {
 
 test('3.4 Addon - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_addon_3_13/app', '/test-apps/ember_addon_3_13/addon'],
+    sourcePaths: ['/test-apps/ember_addon_3_13/app', '/test-apps/ember_addon_3_13/addon'],
     projectRoot: '/test-apps/ember_addon_3_13/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_addon_3_13/app/components',
       '/test-apps/ember_addon_3_13/addon/components',
       '/test-apps/ember_addon_3_13/addon/templates/components',

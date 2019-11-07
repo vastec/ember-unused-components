@@ -5,13 +5,13 @@ const utils = require('../lib/utils');
 
 test('3.4 LTS POD no prefix - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app'],
     projectRoot: '/test-apps/ember_lts_3_4_pod_no_prefix/',
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
     isAddon: false,
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_3_4_pod_no_prefix/app/components',
       '/test-apps/ember_lts_3_4_pod_no_prefix/app/templates/components',
     ],
@@ -25,11 +25,11 @@ test('3.4 LTS POD no prefix - get config', t => {
 
 test('3.4 LTS POD no prefix - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app'],
     projectRoot: '/test-apps/ember_lts_3_4_pod_no_prefix/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_3_4_pod_no_prefix/app/components',
       '/test-apps/ember_lts_3_4_pod_no_prefix/app/templates/components',
     ],
@@ -83,11 +83,11 @@ test('3.4 LTS POD no prefix - map components', t => {
 
 test('3.4 LTS POD no prefix - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app'],
     projectRoot: '/test-apps/ember_lts_3_4_pod_no_prefix/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app/components'],
+    componentPaths: ['/test-apps/ember_lts_3_4_pod_no_prefix/app/components'],
   };
 
   let expectedComponents = [

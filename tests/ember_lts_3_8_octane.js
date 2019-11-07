@@ -5,13 +5,13 @@ const utils = require('../lib/utils');
 
 test('3.8 LTS Octane - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_lts_3_8_octane/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_8_octane/app'],
     projectRoot: '/test-apps/ember_lts_3_8_octane/',
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
     isAddon: false,
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_3_8_octane/app/components',
       '/test-apps/ember_lts_3_8_octane/app/templates/components',
     ],
@@ -25,11 +25,11 @@ test('3.8 LTS Octane - get config', t => {
 
 test('3.8 LTS Octane - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_8_octane/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_8_octane/app'],
     projectRoot: '/test-apps/ember_lts_3_8_octane/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_3_8_octane/app/components',
       '/test-apps/ember_lts_3_8_octane/app/templates/components',
     ],
@@ -83,11 +83,11 @@ test('3.8 LTS Octane - map components', t => {
 
 test('3.8 LTS Octane - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_8_octane/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_8_octane/app'],
     projectRoot: '/test-apps/ember_lts_3_8_octane/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_lts_3_8_octane/app/components'],
+    componentPaths: ['/test-apps/ember_lts_3_8_octane/app/components'],
   };
 
   let expectedComponents = [

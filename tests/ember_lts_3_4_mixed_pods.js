@@ -5,13 +5,13 @@ const utils = require('../lib/utils');
 
 test('3.4 LTS Mixed Pods - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
     projectRoot: '/test-apps/ember_lts_3_4_mixed_pods/',
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
     isAddon: false,
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_3_4_mixed_pods/app/components',
       '/test-apps/ember_lts_3_4_mixed_pods/app/templates/components',
     ],
@@ -25,11 +25,11 @@ test('3.4 LTS Mixed Pods - get config', t => {
 
 test('3.4 LTS Mixed Pods - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
     projectRoot: '/test-apps/ember_lts_3_4_mixed_pods/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: [
+    componentPaths: [
       '/test-apps/ember_lts_3_4_mixed_pods/app/components',
       '/test-apps/ember_lts_3_4_mixed_pods/app/templates/components',
     ],
@@ -83,11 +83,11 @@ test('3.4 LTS Mixed Pods - map components', t => {
 
 test('3.4 LTS Mixed Pods - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
+    sourcePaths: ['/test-apps/ember_lts_3_4_mixed_pods/app'],
     projectRoot: '/test-apps/ember_lts_3_4_mixed_pods/',
     ignore: ['app/templates/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app/components'],
+    componentPaths: ['/test-apps/ember_lts_3_4_mixed_pods/app/components'],
   };
 
   let expectedComponents = [

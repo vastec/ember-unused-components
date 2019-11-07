@@ -5,13 +5,13 @@ const utils = require('../lib/utils');
 
 test('3.10 + Module Unification - get config', t => {
   let expectedConfig = {
-    appPaths: ['/test-apps/ember_3_10_mu/src'],
+    sourcePaths: ['/test-apps/ember_3_10_mu/src'],
     projectRoot: '/test-apps/ember_3_10_mu',
     ignore: ['src/ui/routes/application/freestyle.hbs'],
     includeAddons: false,
     isAddon: false,
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
+    componentPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
     failOnUnused: false,
   };
   let commandOptions = { path: '/test-apps/ember_3_10_mu' };
@@ -22,11 +22,11 @@ test('3.10 + Module Unification - get config', t => {
 
 test('3.10 + Module Unification - map components', t => {
   let config = {
-    appPaths: ['/test-apps/ember_3_10_mu/src'],
+    sourcePaths: ['/test-apps/ember_3_10_mu/src'],
     projectRoot: '/test-apps/ember_3_10_mu/',
     ignore: ['src/ui/routes/application/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
+    componentPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
   };
 
   let expectedComponents = [
@@ -81,11 +81,11 @@ test('3.10 + Module Unification - map components', t => {
 
 test('3.10 + Module Unification - look for unused components and calculate stats', t => {
   let config = {
-    appPaths: ['/test-apps/ember_3_10_mu/src/'],
+    sourcePaths: ['/test-apps/ember_3_10_mu/src/'],
     projectRoot: '/test-apps/ember_3_10_mu/',
     ignore: ['src/ui/routes/application/freestyle.hbs'],
     whitelist: ['z-button'],
-    searchPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
+    componentPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
   };
 
   let expectedComponents = [
