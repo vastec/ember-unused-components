@@ -13,9 +13,9 @@ This script searches for unused components in your Ember project. It supports:
  - `ember-light-table`'s way of defining `cellComponent: 'component-name'` and `component: 'component-name'`
  - `(component "component-name")` helper used in templates
  - ignoring files,
- - and whitelisting components unused temporary
- - addons
- - components being used in addons with --includeAddons option
+ - whitelisting components unused temporary,
+ - addons,
+ - and components being used in addons with `--includeAddons` option.
 
 It also has a very interesting statistics module.
 
