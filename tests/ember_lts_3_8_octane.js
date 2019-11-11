@@ -75,7 +75,9 @@ test('3.8 LTS Octane - map components', t => {
     'has proper list of components'
   );
   t.deepEqual(
-    Object.values(analyser.unusedComponents).map(c => c.key),
+    Object.values(analyser.components)
+      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -109,21 +111,19 @@ test('3.8 LTS Octane - look for unused components and calculate stats', t => {
   let expectedUnusedComponents = ['alert', 'max-button', 'user/user-signature'];
 
   let expectedStats = {
-    alert: { name: 'alert', count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
-    counter: { name: 'counter', count: 1, curly: 0, angle: 1, js: 0, componentHelper: 0 },
-    'huge-button': { name: 'huge-button', count: 1, curly: 0, angle: 1, js: 0, componentHelper: 0 },
-    'max-button': { name: 'max-button', count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
+    alert: { count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
+    counter: { count: 1, curly: 0, angle: 1, js: 0, componentHelper: 0 },
+    'huge-button': { count: 1, curly: 0, angle: 1, js: 0, componentHelper: 0 },
+    'max-button': { count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
     'medium-button': {
-      name: 'medium-button',
       count: 1,
       curly: 0,
       angle: 1,
       js: 0,
       componentHelper: 0,
     },
-    'mini-button': { name: 'mini-button', count: 2, curly: 0, angle: 2, js: 0, componentHelper: 0 },
+    'mini-button': { count: 2, curly: 0, angle: 2, js: 0, componentHelper: 0 },
     'user/user-avatar': {
-      name: 'user/user-avatar',
       count: 1,
       curly: 1,
       angle: 0,
@@ -131,7 +131,6 @@ test('3.8 LTS Octane - look for unused components and calculate stats', t => {
       componentHelper: 0,
     },
     'user/user-card': {
-      name: 'user/user-card',
       count: 1,
       curly: 1,
       angle: 0,
@@ -139,7 +138,6 @@ test('3.8 LTS Octane - look for unused components and calculate stats', t => {
       componentHelper: 0,
     },
     'user/user-info': {
-      name: 'user/user-info',
       count: 1,
       curly: 1,
       angle: 0,
@@ -147,16 +145,15 @@ test('3.8 LTS Octane - look for unused components and calculate stats', t => {
       componentHelper: 0,
     },
     'user/user-signature': {
-      name: 'user/user-signature',
       count: 0,
       curly: 0,
       angle: 0,
       js: 0,
       componentHelper: 0,
     },
-    'x-button': { name: 'x-button', count: 2, curly: 0, angle: 0, js: 1, componentHelper: 1 },
-    'y-button': { name: 'y-button', count: 1, curly: 1, angle: 0, js: 0, componentHelper: 0 },
-    'z-button': { name: 'z-button', count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
+    'x-button': { count: 2, curly: 0, angle: 0, js: 1, componentHelper: 1 },
+    'y-button': { count: 1, curly: 1, angle: 0, js: 0, componentHelper: 0 },
+    'z-button': { count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
   };
 
   analyser.scanProject(config);
@@ -168,9 +165,17 @@ test('3.8 LTS Octane - look for unused components and calculate stats', t => {
     'has proper list of components'
   );
   t.deepEqual(
-    Object.values(analyser.unusedComponents).map(c => c.key),
+    Object.values(analyser.components)
+      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .map(c => c.key),
     expectedUnusedComponents,
-    'has proper list of unused components at this stage'
+    'has proper list of unused components'
   );
-  t.deepEqual(analyser.stats, expectedStats, 'has properly calculated stats');
+  Object.keys(expectedStats).forEach(componentKey => {
+    t.deepEqual(
+      analyser.components[componentKey].stats,
+      expectedStats[componentKey],
+      `has properly calculated stats for ${componentKey}`
+    );
+  });
 });

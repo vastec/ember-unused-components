@@ -55,9 +55,9 @@ test('it gets addon info correctly', t => {
   withAddon.forEach(path => {
     let info = objectInfo.get(config, path);
 
-    t.is(info.source, 'company-buttons', `${path} should yield correct source name`);
+    t.is(info.addonName, 'company-buttons', `${path} should yield correct source name`);
     t.is(
-      info.sourcePath,
+      info.addonPath,
       '/node_modules/company-buttons',
       `${path} should yield correct source path`
     );
@@ -65,7 +65,7 @@ test('it gets addon info correctly', t => {
 
   withoutAddon.forEach(path => {
     let info = objectInfo.get(config, path);
-    t.is(info.source, undefined, `${path} should not have source name`);
-    t.is(info.sourcePath, undefined, `${path} should not have source path`);
+    t.is(info.addonName, undefined, `${path} should not have source name`);
+    t.is(info.addonPath, undefined, `${path} should not have source path`);
   });
 });

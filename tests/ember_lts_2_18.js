@@ -65,7 +65,9 @@ test('2.18 LTS - map components', t => {
     'has proper list of components'
   );
   t.deepEqual(
-    Object.values(analyser.unusedComponents).map(c => c.key),
+    Object.values(analyser.components)
+      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
   );
@@ -95,7 +97,6 @@ test('2.18 LTS - look for unused components and calculate stats', t => {
 
   let expectedStats = {
     'user/user-avatar': {
-      name: 'user/user-avatar',
       count: 1,
       curly: 1,
       angle: 0,
@@ -103,7 +104,6 @@ test('2.18 LTS - look for unused components and calculate stats', t => {
       componentHelper: 0,
     },
     'user/user-card': {
-      name: 'user/user-card',
       count: 1,
       curly: 1,
       angle: 0,
@@ -111,7 +111,6 @@ test('2.18 LTS - look for unused components and calculate stats', t => {
       componentHelper: 0,
     },
     'user/user-info': {
-      name: 'user/user-info',
       count: 1,
       curly: 1,
       angle: 0,
@@ -119,7 +118,6 @@ test('2.18 LTS - look for unused components and calculate stats', t => {
       componentHelper: 0,
     },
     'user/user-signature': {
-      name: 'user/user-signature',
       count: 0,
       curly: 0,
       angle: 0,
@@ -127,16 +125,15 @@ test('2.18 LTS - look for unused components and calculate stats', t => {
       componentHelper: 0,
     },
     'user/user-something': {
-      name: 'user/user-something',
       count: 6,
       curly: 0,
       angle: 0,
       js: 6,
       componentHelper: 0,
     },
-    'x-button': { name: 'x-button', count: 2, curly: 0, angle: 0, js: 1, componentHelper: 1 },
-    'y-button': { name: 'y-button', count: 7, curly: 1, angle: 0, js: 6, componentHelper: 0 },
-    'z-button': { name: 'z-button', count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
+    'x-button': { count: 2, curly: 0, angle: 0, js: 1, componentHelper: 1 },
+    'y-button': { count: 7, curly: 1, angle: 0, js: 6, componentHelper: 0 },
+    'z-button': { count: 0, curly: 0, angle: 0, js: 0, componentHelper: 0 },
   };
 
   analyser.scanProject(config);
@@ -148,9 +145,17 @@ test('2.18 LTS - look for unused components and calculate stats', t => {
     'has proper list of components'
   );
   t.deepEqual(
-    Object.values(analyser.unusedComponents).map(c => c.key),
+    Object.values(analyser.components)
+      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .map(c => c.key),
     expectedUnusedComponents,
-    'has proper list of unused components at this stage'
+    'has proper list of unused components'
   );
-  t.deepEqual(analyser.stats, expectedStats, 'has properly calculated stats');
+  Object.keys(expectedStats).forEach(componentKey => {
+    t.deepEqual(
+      analyser.components[componentKey].stats,
+      expectedStats[componentKey],
+      `has properly calculated stats for ${componentKey}`
+    );
+  });
 });
