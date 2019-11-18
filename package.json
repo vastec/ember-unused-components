@@ -28,7 +28,7 @@
   "dependencies": {
     "colors": "1.4.0",
     "fs-extra": "8.1.0",
-    "yargs": "^14.0.0"
+    "yargs": "^15.0.1"
   },
   "devDependencies": {
     "ava": "^2.0.0",
