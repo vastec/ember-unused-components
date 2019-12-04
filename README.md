@@ -108,7 +108,7 @@ welcome-page:
     - {{welcome-page}}
 ```
 
-#### Searching components contained in other packages
+#### [EXPERIMENTAL] Searching components contained in other packages
 
 You can also print all occurrences of components that were found in included addons. Use `--includeAddons` to include all found addons, or `includeAddons=company-*` to only include addons that match `company-*`
 
