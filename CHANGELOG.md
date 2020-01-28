@@ -2,13 +2,26 @@
 
 ## On `master`, to release
 
+- nothing yet
+
+## 1.2.0 (January 28, 2020)
+
+**FEATURES:**
+- [#52](https://github.com/vastec/ember-unused-components/pull/52) [EXPERIMENTAL] - Search for unused compnents from addons :fire: Maybe you don't need that addon anymore? 
+
+**REFACTOR:**
+- [#52](https://github.com/vastec/ember-unused-components/pull/52) Improvements to components detection + internal restructuring that sets things in the right direction for future development
+
+Special thanks to @jkeen for his huge work on the refactor and the experimental feature!
+
 **MAINTENANCE:**
 - ([#39](https://github.com/vastec/ember-unused-components/pull/39)) Bump ava from `2.3.0` to `2.4.0`
 - ([#42](https://github.com/vastec/ember-unused-components/pull/42)) Bump colors from `1.3.3` to `1.4.0`
-- ([#43](https://github.com/vastec/ember-unused-components/pull/43)) Bump eslint-plugin-prettier from `3.1.0` to `3.1.1`
-- ([#45](https://github.com/vastec/ember-unused-components/pull/45)) Bump yargs from `14.0.0` to `14.2.0`
-- ([#48](https://github.com/vastec/ember-unused-components/pull/48)) Bump eslint from `6.3.0` to `6.6.0`
-- ([#49](https://github.com/vastec/ember-unused-components/pull/49)) Bump eslint-config-prettier from `6.2.0` to `6.5.0`
+- ([#43](https://github.com/vastec/ember-unused-components/pull/43), [#61](https://github.com/vastec/ember-unused-components/pull/61)) Bump eslint-plugin-prettier from `3.1.0` to `3.1.2`
+- ([#45](https://github.com/vastec/ember-unused-components/pull/45), [#65](https://github.com/vastec/ember-unused-components/pull/65)) Bump yargs from `14.0.0` to `15.1.0`
+- ([#48](https://github.com/vastec/ember-unused-components/pull/48), [#62](https://github.com/vastec/ember-unused-components/pull/62)) Bump eslint from `6.3.0` to `6.8.0`
+- ([#49](https://github.com/vastec/ember-unused-components/pull/49), [#64](https://github.com/vastec/ember-unused-components/pull/64)) Bump eslint-config-prettier from `6.2.0` to `6.9.0`
+- ([#63](https://github.com/vastec/ember-unused-components/pull/63)) Bump eslint-plugin-node from `10.0.0` to `11.0.0`
 
 ## 1.1.0 (September 10, 2019)
 
