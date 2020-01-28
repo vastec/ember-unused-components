@@ -13,8 +13,10 @@ This script searches for unused components in your Ember project. It supports:
  - `ember-light-table`'s way of defining `cellComponent: 'component-name'` and `component: 'component-name'`
  - `(component "component-name")` helper used in templates
  - ignoring files,
- - and whitelisting components unused temporary.
- 
+ - whitelisting components unused temporary,
+ - addons,
+ - and components being used in addons with `--includeAddons` option.
+
 It also has a very interesting statistics module.
 
 Installation
@@ -106,6 +108,27 @@ welcome-page:
     - {{welcome-page}}
 ```
 
+#### [EXPERIMENTAL] Searching components contained in other packages
+
+You can also print all occurrences of components that were found in included addons. Use `--includeAddons` to include all found addons, or `includeAddons=company-*` to only include addons that match `company-*`
+
+```bash
+$ npx ember-unused-components --occurrences --includeAddons=company-*
+
+// simplified
+
+[company-buttons] button-a:
+
+   > ./app/templates/components/user-card.hbs
+    - <ButtonA>Button Text</ButtonA>
+
+welcome-page:
+
+   > ./app/templates/application.hbs
+    - {{welcome-page}}
+```
+
+
 ### Advanced usage
 
 Typically the script should realize if you are using [POD structure](https://ember-cli.com/user-guide/#pod-structure) or not and find its way to components directory.
@@ -120,7 +143,7 @@ To force using POD use `--pods` argument (alias: `-p`). Like this:
 $ npx ember-unused-components --pods
 ```
 
-The script will use the default directory of POD components: `app/components`. **Please let me know** if you had to force using POD. I made a simple guessing algorithm that should handle PODs out-of-the-box. 
+The script will use the default directory of POD components: `app/components`. **Please let me know** if you had to force using POD. I made a simple guessing algorithm that should handle PODs out-of-the-box.
 
 #### Forcing POD with the custom directory
 

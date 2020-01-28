@@ -1,0 +1,1 @@
+export { default } from 'ember-addon-3-13/components/z-button';
