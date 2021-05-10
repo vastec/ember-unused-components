@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "colors": "1.4.0",
-    "fs-extra": "8.1.0",
+    "fs-extra": "10.0.0",
     "glob": "^7.1.5",
     "yargs": "^15.1.0"
   },
