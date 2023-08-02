@@ -4,6 +4,11 @@
 
 - nothing yet
 
+## 1.2.1 (August 2, 2023)
+
+**FEATURES:**
+- [#189](https://github.com/vastec/ember-unused-components/pull/189) Support typescript files and component colocation
+
 ## 1.2.0 (January 28, 2020)
 
 **FEATURES:**
