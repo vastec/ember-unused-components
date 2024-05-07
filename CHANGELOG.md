@@ -4,6 +4,14 @@
 
 - nothing yet
 
+## 1.2.2 (May 7, 2024)
+
+**FIX:**
+- [#190](https://github.com/vastec/ember-unused-components/pull/190) Fixed ignored files not being ignored
+
+**MAINTENANCE:**
+- [#191](https://github.com/vastec/ember-unused-components/pull/191) Update package-lock.json
+
 ## 1.2.1 (August 2, 2023)
 
 **FEATURES:**
@@ -12,7 +20,7 @@
 ## 1.2.0 (January 28, 2020)
 
 **FEATURES:**
-- [#52](https://github.com/vastec/ember-unused-components/pull/52) [EXPERIMENTAL] - Search for unused compnents from addons :fire: Maybe you don't need that addon anymore? 
+- [#52](https://github.com/vastec/ember-unused-components/pull/52) [EXPERIMENTAL] - Search for unused components from addons :fire: Maybe you don't need that addon anymore? 
 
 **REFACTOR:**
 - [#52](https://github.com/vastec/ember-unused-components/pull/52) Improvements to components detection + internal restructuring that sets things in the right direction for future development
